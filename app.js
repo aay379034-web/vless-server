@@ -1,4 +1,4 @@
-const http = require('http');
+const http = const http = require('http');
 const crypto = require('crypto');
 
 const PORT = process.env.PORT || 3000;
