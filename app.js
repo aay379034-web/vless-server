@@ -3,9 +3,12 @@ const http = require('http');
 const PORT = process.env.PORT || 3000;
 const WS_PATH = '/vless-ws';
 
-// رابط البوت للبدء وفتح القائمة مباشرة
 const TELEGRAM_BOT_URL = "https://t.me/Hassan0008bot?start=start"; 
-const TELEGRAM_CHANNEL_URL = "#"; // ضع رابط قناتك هنا إذا أردت
+const TELEGRAM_CHANNEL_URL = "#"; 
+
+// روابط التطبيقات (يمكنك تعديلها لاحقاً بروابطك الخاصة)
+const ANDROID_APP_URL = "#";
+const IOS_APP_URL = "#";
 
 const users = [
     { name: "بيع - ... 1", uuid: "b83296c0-4534-4d85-8240-a30999554589" },
@@ -71,6 +74,15 @@ const server = http.createServer((req, res) => {
         .bottom-grid { display: flex; gap: 10px; margin-top: 20px; }
         .bottom-btn { flex: 1; background: #121212; border: 1px solid rgba(255,255,255,0.1); padding: 14px; border-radius: 16px; text-align: center; color: #fff; font-size: 13px; font-weight: bold; cursor: pointer; text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 6px; }
         .full-btn { display: block; width: 100%; background: #121212; border: 1px solid rgba(255,255,255,0.1); padding: 12px; border-radius: 16px; text-align: center; color: #fff; font-size: 13px; font-weight: bold; margin-top: 10px; cursor: pointer; text-decoration: none; box-sizing: border-box; }
+
+        /* تنسيق النافذة المنبثقة (Modal) */
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); z-index: 1000; justify-content: center; align-items: center; }
+        .modal-box { background: #0c0c0e; border: 1px solid rgba(255,255,255,0.1); width: 90%; max-width: 380px; border-radius: 24px; padding: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.9); position: relative; box-sizing: border-box; }
+        .modal-close { background: none; border: none; color: #aaa; font-size: 20px; cursor: pointer; position: absolute; top: 15px; left: 15px; }
+        .modal-title { text-align: center; font-size: 16px; font-weight: bold; color: #fff; margin-bottom: 20px; margin-top: 5px; }
+        .app-option-btn { display: flex; justify-content: space-between; align-items: center; background: #141418; border: 1px solid rgba(255,255,255,0.08); padding: 15px; border-radius: 16px; margin-bottom: 12px; text-decoration: none; color: #fff; font-size: 14px; font-weight: bold; transition: 0.2s; }
+        .app-option-btn:hover { background: #1a1a20; }
+        .app-icon-text { display: flex; align-items: center; gap: 10px; }
     </style>
 </head>
 <body>
@@ -124,7 +136,31 @@ const server = http.createServer((req, res) => {
             <a href="${TELEGRAM_BOT_URL}" target="_blank" class="bottom-btn">🤖 الشراء المباشر من البوت</a>
         </div>
         <a href="#" class="full-btn">📖 طريقة الاستخدام</a>
-        <a href="#" class="full-btn" style="background: #121212; color: #ffaa00;">📱 روابط التطبيقات</a>
+        <a href="javascript:void(0);" onclick="openModal()" class="full-btn" style="background: #121212; color: #ffaa00;">📱 روابط التطبيقات</a>
+    </div>
+
+    <!-- نافذة روابط التطبيقات المنبثقة -->
+    <div id="appsModal" class="modal-overlay">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeModal()">✕</button>
+            <div class="modal-title">اختر نوع التطبيقات</div>
+            
+            <a href="${ANDROID_APP_URL}" target="_blank" class="app-option-btn" style="border-color: rgba(0,255,150,0.2);">
+                <div class="app-icon-text">
+                    <span style="font-size: 18px;">🤖</span>
+                    <span style="color: #00ff96;">تطبيقات الأندرويد</span>
+                </div>
+                <span style="color: #00ff96; font-size: 16px;">‹</span>
+            </a>
+
+            <a href="${IOS_APP_URL}" target="_blank" class="app-option-btn" style="border-color: rgba(50,150,255,0.2);">
+                <div class="app-icon-text">
+                    <span style="font-size: 18px;">🍏</span>
+                    <span style="color: #3b82f6;">تطبيقات الآيفون</span>
+                </div>
+                <span style="color: #3b82f6; font-size: 16px;">‹</span>
+            </a>
+        </div>
     </div>
 
     <script>
@@ -133,6 +169,22 @@ const server = http.createServer((req, res) => {
             copyText.select();
             navigator.clipboard.writeText(copyText.value);
             alert("تم نسخ رابط الاشتراك بنجاح!");
+        }
+
+        function openModal() {
+            document.getElementById('appsModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('appsModal').style.display = 'none';
+        }
+
+        // إغلاق النافذة عند الضغط خارجها
+        window.onclick = function(event) {
+            var modal = document.getElementById('appsModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
         }
     </script>
 </body>
