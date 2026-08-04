@@ -4,9 +4,9 @@ const PORT = process.env.PORT || 3000;
 const WS_PATH = '/vless-ws';
 
 const users = [
-    { name: "بيع - سرور 1", uuid: "b83296c0-4534-4d85-8240-a30999554589" },
-    { name: "بيع - سرور 2", uuid: "1a2b3c4d-5678-90ab-cdef-123456789abc" },
-    { name: "بيع - سرور 3", uuid: "7c9e6679-7425-40de-944b-e07fc1f90ae7" }
+    { name: "بيع - ... 1", uuid: "b83296c0-4534-4d85-8240-a30999554589" },
+    { name: "بيع - ... 2", uuid: "1a2b3c4d-5678-90ab-cdef-123456789abc" },
+    { name: "بيع - ... 3", uuid: "7c9e6679-7425-40de-944b-e07fc1f90ae7" }
 ];
 
 const server = http.createServer((req, res) => {
@@ -109,7 +109,7 @@ const server = http.createServer((req, res) => {
         </div>
 
         <div class="section-header">
-            <span>معلومات الاشتراك:</span>
+            <span>منصة بيع</span>
             <button class="copy-all-btn" onclick="alert('تم نسخ الكل')">نسخ الكل</button>
         </div>
 
@@ -145,4 +145,3 @@ const server = http.createServer((req, res) => {
 server.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
-    
