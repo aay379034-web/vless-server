@@ -1,4 +1,4 @@
-const http = require('http');
+const http =const http = require('http');
 
 const PORT = process.env.PORT || 3000;
 const UUID = process.env.UUID || 'b83296c0-4534-4d85-8240-a30999554589';
@@ -28,7 +28,7 @@ const server = http.createServer((req, res) => {
                     .badge-active { background: rgba(0, 255, 128, 0.15); color: #00ff80; padding: 3px 10px; border-radius: 20px; font-size: 12px; }
                     .sub-section-title { font-size: 16px; margin: 20px 0 10px 0; color: #b8b8d0; text-align: center; font-weight: bold; }
                     .link-box { background: rgba(0, 0, 0, 0.3); padding: 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); margin-bottom: 10px; }
-                    .link-title { font-size: 13px; margin-bottom: 8px; color: #00ffcc; }
+                    .link-title { font-size: 14px; margin-bottom: 8px; color: #00ffcc; font-weight: bold; }
                     .link-content { display: flex; gap: 8px; }
                     input[type="text"] { flex: 1; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); padding: 8px; border-radius: 8px; color: #fff; font-size: 12px; direction: ltr; text-align: left; }
                     .copy-btn { background: #3b82f6; color: white; border: none; padding: 8px 14px; border-radius: 8px; cursor: pointer; font-size: 12px; font-weight: bold; }
@@ -66,12 +66,12 @@ const server = http.createServer((req, res) => {
                     </div>
 
                     <div class="sub-section-title">
-                        <span>منصة بيع (VLESS)</span>
+                        <span>منصة بيع</span>
                     </div>
 
                     <div class="link-box">
                         <div class="link-title">
-                            <span>IRAQ 🇮🇶 - Server Link</span>
+                            منصة بيع
                         </div>
                         <div class="link-content">
                             <input type="text" id="vlessLink" value="vless://${UUID}@${req.headers.host || 'server'}?encryption=none&security=none&type=ws&path=${WS_PATH}#منصة-بيع" readonly>
