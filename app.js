@@ -1,4 +1,4 @@
-const http = require('http');
+const http =const http = require('http');
 
 const PORT = process.env.PORT || 3000;
 const UUID = process.env.UUID || 'b83296c0-4534-4d85-8240-a30999554589';
@@ -13,7 +13,7 @@ const server = http.createServer((req, res) => {
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>معلومات الاشتراك</title>
+                <title>منصة بيع</title>
                 <style>
                     body { font-family: Tahoma, sans-serif; background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); margin: 0; padding: 15px; color: #fff; min-height: 100vh; }
                     .container { max-width: 450px; margin: 0 auto; background: rgba(22, 19, 48, 0.85); padding: 20px; border-radius: 20px; box-shadow: 0 8px 32px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); }
@@ -37,7 +37,7 @@ const server = http.createServer((req, res) => {
             </head>
             <body>
                 <div class="container">
-                    <h2>معلومات الاشتراك</h2>
+                    <h2>منصة بيع</h2>
                     
                     <div class="cards-row">
                         <div class="card">
@@ -74,7 +74,7 @@ const server = http.createServer((req, res) => {
                             <span>IRAQ 🇮🇶 - Server Link</span>
                         </div>
                         <div class="link-content">
-                            <input type="text" id="vlessLink" value="vless://${UUID}@${req.headers.host || 'server'}?encryption=none&security=none&type=ws&path=${PATH}#IRAQ-Server" readonly>
+                            <input type="text" id="vlessLink" value="vless://${UUID}@${req.headers.host || 'server'}?encryption=none&security=none&type=ws&path=${PATH}#منصة-بيع" readonly>
                             <button class="copy-btn" onclick="copyText()">نسخ</button>
                         </div>
                     </div>
