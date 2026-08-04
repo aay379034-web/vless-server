@@ -7,13 +7,13 @@ const TELEGRAM_BOT_URL = "https://t.me/Hassan0008bot?start=start";
 const TELEGRAM_CHANNEL_URL = "#"; 
 const IOS_APP_URL = "#";
 
-// قائمة تطبيقات الأندرويد الـ 19 مع روابط متجر جوجل بلاي المباشرة
+// قائمة تطبيقات الأندرويد الـ 19 مع حزم متجر جوجل بلاي الحقيقية والصحيحة
 const androidApps = [
     { name: "NetMod VPN Client (V2Ray/SSH)", pkg: "com.netmod.vpn" },
     { name: "DarkTunnel - SSH DNSTT V2Ray", pkg: "com.darktunnel.app" },
     { name: "Hiddify", pkg: "app.hiddify.com" },
     { name: "HiddifyNG v2ray, reality, xray", pkg: "com.hiddify.ng" },
-    { name: "V2Box", pkg: "com.v2box.v2ray" },
+    { name: "V2Box", pkg: "dev.v2box.app" },
     { name: "v2RayTun", pkg: "com.v2raytun.android" },
     { name: "OneXray", pkg: "com.onexray.app" },
     { name: "sing-box", pkg: "io.nekohasekai.sfa" },
@@ -57,7 +57,6 @@ const server = http.createServer((req, res) => {
             `;
         });
 
-        // توليد عناصر قائمة تطبيقات الأندرويد ديناميكياً
         let androidAppsHtml = '';
         androidApps.forEach((app) => {
             let playStoreUrl = `https://play.google.com/store/apps/details?id=${app.pkg}`;
@@ -65,13 +64,15 @@ const server = http.createServer((req, res) => {
                 <a href="${playStoreUrl}" target="_blank" class="app-item">
                     <div class="app-info">
                         <div class="play-icon-row">
-                            <span class="play-triangle">▶</span>
+                            <svg class="play-icon-svg" viewBox="0 0 24 24" width="12" height="12">
+                                <path fill="#00ff80" d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
+                            </svg>
                             <span class="download-text">تحميل</span>
                         </div>
                         <div class="app-name">${app.name}</div>
                     </div>
                     <div class="app-logo-box">
-                        <span style="font-size: 16px; color: #fff;">⚡</span>
+                        <span style="font-size: 14px; font-weight: bold; color: #fff;">⚡</span>
                     </div>
                 </a>
             `;
@@ -115,22 +116,21 @@ const server = http.createServer((req, res) => {
         .bottom-btn { flex: 1; background: #121212; border: 1px solid rgba(255,255,255,0.1); padding: 14px; border-radius: 16px; text-align: center; color: #fff; font-size: 13px; font-weight: bold; cursor: pointer; text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 6px; }
         .full-btn { display: block; width: 100%; background: #121212; border: 1px solid rgba(255,255,255,0.1); padding: 12px; border-radius: 16px; text-align: center; color: #fff; font-size: 13px; font-weight: bold; margin-top: 10px; cursor: pointer; text-decoration: none; box-sizing: border-box; }
 
-        /* تنسيق النافذة المنبثقة الأولى (روابط التطبيقات) */
+        /* تنسيق النافذة الأولى */
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); z-index: 1000; justify-content: center; align-items: center; }
         .modal-box { background: #0c0c0e; border: 1px solid rgba(255,255,255,0.1); width: 90%; max-width: 380px; border-radius: 24px; padding: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.9); position: relative; box-sizing: border-box; }
         .modal-close { background: none; border: none; color: #aaa; font-size: 20px; cursor: pointer; position: absolute; top: 15px; left: 15px; }
         .modal-title { text-align: center; font-size: 16px; font-weight: bold; color: #fff; margin-bottom: 20px; margin-top: 5px; }
         .app-option-btn { display: flex; justify-content: space-between; align-items: center; background: #141418; border: 1px solid rgba(255,255,255,0.08); padding: 15px; border-radius: 16px; margin-bottom: 12px; text-decoration: none; color: #fff; font-size: 14px; font-weight: bold; transition: 0.2s; }
-        .app-option-btn:hover { background: #1a1a20; }
         .app-icon-text { display: flex; align-items: center; gap: 10px; }
 
-        /* تنسيق نافذة قائمة أندرويد (تطابق الصورة تماماً) */
+        /* تنسيق نافذة تطبيقات الأندرويد المطابقة للصور */
         .sub-modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); z-index: 1100; justify-content: center; align-items: center; }
-        .sub-modal-box { background: #0c0c0e; border: 1px solid rgba(255,255,255,0.15); width: 92%; max-width: 400px; height: 80vh; border-radius: 24px; padding: 15px; box-shadow: 0 15px 35px rgba(0,0,0,0.9); display: flex; flex-direction: column; box-sizing: border-box; }
+        .sub-modal-box { background: #0c0c0e; border: 1px solid rgba(255,255,255,0.15); width: 92%; max-width: 400px; height: 82vh; border-radius: 24px; padding: 15px; box-shadow: 0 15px 35px rgba(0,0,0,0.9); display: flex; flex-direction: column; box-sizing: border-box; }
         .sub-modal-header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 10px; }
-        .sub-modal-title { font-size: 15px; font-weight: bold; color: #fff; display: flex; align-items: center; gap: 6px; }
-        .sub-modal-actions { display: flex; align-items: center; gap: 15px; }
-        .back-btn { background: none; border: none; color: #aaa; font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 3px; }
+        .sub-modal-title { font-size: 15px; font-weight: bold; color: #fff; }
+        .sub-modal-actions { display: flex; align-items: center; gap: 12px; }
+        .back-btn { background: none; border: none; color: #aaa; font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 3px; font-weight: bold; }
         .close-sub-btn { background: none; border: none; color: #aaa; font-size: 18px; cursor: pointer; }
         
         .apps-list { overflow-y: auto; flex: 1; padding-right: 2px; }
@@ -141,10 +141,9 @@ const server = http.createServer((req, res) => {
         .app-item:hover { background: #1c1c24; }
         .app-info { display: flex; flex-direction: column; gap: 4px; }
         .play-icon-row { display: flex; align-items: center; gap: 4px; }
-        .play-triangle { color: #00ff80; font-size: 10px; }
         .download-text { color: #00ff80; font-size: 12px; font-weight: bold; }
-        .app-name { color: #fff; font-size: 13px; font-weight: bold; }
-        .app-logo-box { width: 38px; height: 38px; background: #1c1c24; border-radius: 10px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.08); }
+        .app-name { color: #fff; font-size: 13px; font-weight: bold; text-align: right; }
+        .app-logo-box { width: 40px; height: 40px; background: #1c1c24; border-radius: 12px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.08); flex-shrink: 0; }
     </style>
 </head>
 <body>
@@ -201,7 +200,7 @@ const server = http.createServer((req, res) => {
         <a href="javascript:void(0);" onclick="openModal()" class="full-btn" style="background: #121212; color: #ffaa00;">📱 روابط التطبيقات</a>
     </div>
 
-    <!-- النافذة الأولى لاختيار النظام (أندرويد / آيفون) -->
+    <!-- نافذة اختيار النظام -->
     <div id="appsModal" class="modal-overlay">
         <div class="modal-box">
             <button class="modal-close" onclick="closeModal()">✕</button>
@@ -225,7 +224,7 @@ const server = http.createServer((req, res) => {
         </div>
     </div>
 
-    <!-- نافذة قائمة تطبيقات الأندرويد الـ 19 -->
+    <!-- نافذة قائمة تطبيقات الأندرويد -->
     <div id="androidModal" class="sub-modal-overlay">
         <div class="sub-modal-box">
             <div class="sub-modal-header">
@@ -271,7 +270,6 @@ const server = http.createServer((req, res) => {
             document.getElementById('androidModal').style.display = 'none';
         }
 
-        // إغلاق النوافذ عند النقر في الخلفية
         window.onclick = function(event) {
             var modal = document.getElementById('appsModal');
             var androidModal = document.getElementById('androidModal');
