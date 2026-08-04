@@ -5,7 +5,6 @@ const WS_PATH = '/vless-ws';
 
 const TELEGRAM_BOT_URL = "https://t.me/Hassan0008bot?start=start"; 
 const TELEGRAM_CHANNEL_URL = "#"; 
-const IOS_APP_URL = "#";
 
 const androidApps = [
     { name: "NetMod VPN Client (V2Ray/SSH)", query: "NetMod VPN Client V2Ray", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#fff"/><text x="50" y="62" font-size="36" font-weight="bold" fill="#ea4335" text-anchor="middle">M</text></svg>` },
@@ -27,6 +26,33 @@ const androidApps = [
     { name: "CREEB INJECTOR (SSH/DNS/UDP)", query: "CREEB INJECTOR", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#1e293b"/><text x="50" y="62" font-size="24" font-weight="bold" fill="#38bdf8" text-anchor="middle">CR</text></svg>` },
     { name: "V2K PROTO - vpn v2ray custom", query: "V2K PROTO vpn", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#0f172a"/><text x="50" y="60" font-size="24" font-weight="bold" fill="#38bdf8" text-anchor="middle">V2K</text></svg>` },
     { name: "V2Ray plugin for HTTP Injector", query: "V2Ray plugin for HTTP Injector", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#db2777"/><text x="50" y="62" font-size="24" font-weight="bold" fill="#fff" text-anchor="middle">PL</text></svg>` }
+];
+
+const iosApps = [
+    { name: "V2Box - V2ray Client", query: "V2Box V2ray Client", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#18181b"/><text x="50" y="62" font-size="32" font-weight="bold" fill="#fff" text-anchor="middle">V2</text></svg>` },
+    { name: "V2Box Pro - V2ray Client", query: "V2Box Pro V2ray Client", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#18181b"/><text x="50" y="62" font-size="30" font-weight="bold" fill="#00ffc4" text-anchor="middle">V2P</text></svg>` },
+    { name: "Hiddify Proxy & VPN", query: "Hiddify Proxy VPN", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#fff"/><rect x="25" y="45" width="12" height="30" fill="#3b82f6"/><rect x="44" y="30" width="12" height="45" fill="#3b82f6"/><rect x="63" y="55" width="12" height="20" fill="#3b82f6"/></svg>` },
+    { name: "Streisand", query: "Streisand vpn", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#1e1b4b"/><path d="M30 30L70 70M70 30L30 70" stroke="#38bdf8" stroke-width="12" stroke-linecap="round"/></svg>` },
+    { name: "v2RayTun", query: "v2RayTun", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#18181b"/><text x="50" y="62" font-size="32" font-weight="bold" fill="#fff" text-anchor="middle">V2</text></svg>` },
+    { name: "Fair VPN", query: "Fair VPN", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#16a34a"/><text x="50" y="62" font-size="32" font-weight="bold" fill="#fff" text-anchor="middle">F</text></svg>` },
+    { name: "Happ - Proxy Utility", query: "Happ Proxy Utility", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#27272a"/><text x="50" y="62" font-size="32" font-weight="bold" fill="#fff" text-anchor="middle">H</text></svg>` },
+    { name: "OneXray", query: "OneXray", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#007acc"/><path d="M30 30L70 70M70 30L30 70" stroke="#fff" stroke-width="16" stroke-linecap="round"/></svg>` },
+    { name: "OneClick - Safe, Easy & Fast", query: "OneClick VPN", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#27272a"/><text x="50" y="62" font-size="30" font-weight="bold" fill="#fff" text-anchor="middle">∞</text></svg>` },
+    { name: "VPN - Mango V2ray", query: "VPN Mango V2ray", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#18181b"/><text x="50" y="62" font-size="28" font-weight="bold" fill="#f97316" text-anchor="middle">M</text></svg>` },
+    { name: "Shadowrocket", query: "Shadowrocket", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#fff"/><path d="M50 25L65 55H35Z" fill="#3b82f6"/></svg>` },
+    { name: "Karing", query: "Karing vpn", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#3b82f6"/><text x="50" y="62" font-size="24" font-weight="bold" fill="#fff" text-anchor="middle">K</text></svg>` },
+    { name: "sing-box VT", query: "sing-box", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#3f3f46"/><path d="M25 35L50 20L75 35V65L50 80L25 65Z" fill="#52525b" stroke="#71717a" stroke-width="4"/></svg>` },
+    { name: "Loon", query: "Loon vpn", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#a855f7"/><circle cx="50" cy="50" r="20" fill="#fff"/></svg>` },
+    { name: "Loon Lite", query: "Loon Lite", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#f43f5e"/><circle cx="50" cy="50" r="20" fill="#fff"/></svg>` },
+    { name: "Stash - Rule Based Proxy", query: "Stash Rule Based Proxy", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#0284c7"/><circle cx="50" cy="50" r="22" fill="none" stroke="#fff" stroke-width="6"/></svg>` },
+    { name: "Quantumult X", query: "Quantumult X", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#fff"/><path d="M50 30L70 70H30Z" fill="#ef4444"/></svg>` },
+    { name: "Egern", query: "Egern vpn", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#0ea5e9"/><text x="50" y="62" font-size="28" font-weight="bold" fill="#fff" text-anchor="middle">E</text></svg>` },
+    { name: "Nextin", query: "Nextin vpn", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#ccfbf1"/><text x="50" y="62" font-size="28" font-weight="bold" fill="#0d9488" text-anchor="middle">N</text></svg>` },
+    { name: "Everywhere Proxy", query: "Everywhere Proxy", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#1e3a8a"/><text x="50" y="62" font-size="24" font-weight="bold" fill="#fff" text-anchor="middle">EP</text></svg>` },
+    { name: "Pawdoll", query: "Pawdoll", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#818cf8"/><text x="50" y="62" font-size="24" font-weight="bold" fill="#fff" text-anchor="middle">PAW</text></svg>` },
+    { name: "Clash Plus - Smart Proxy Tool", query: "Clash Plus Smart Proxy Tool", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#34d399"/><text x="50" y="62" font-size="24" font-weight="bold" fill="#fff" text-anchor="middle">C+</text></svg>` },
+    { name: "Clash Lite", query: "Clash Lite", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#e0e7ff"/><text x="50" y="62" font-size="24" font-weight="bold" fill="#4f46e5" text-anchor="middle">CL</text></svg>` },
+    { name: "OTun-M", query: "OTun-M", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#f59e0b"/><text x="50" y="62" font-size="24" font-weight="bold" fill="#fff" text-anchor="middle">OT</text></svg>` }
 ];
 
 const users = [
@@ -67,6 +93,27 @@ const server = http.createServer((req, res) => {
                                 <path fill="#00ff80" d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
                             </svg>
                             <span class="download-text">تحميل</span>
+                        </div>
+                        <div class="app-name">${app.name}</div>
+                    </div>
+                    <div class="app-logo-box">
+                        ${app.iconSvg}
+                    </div>
+                </a>
+            `;
+        });
+
+        let iosAppsHtml = '';
+        iosApps.forEach((app) => {
+            let searchUrl = `https://apps.apple.com/us/search?term=${encodeURIComponent(app.query)}`;
+            iosAppsHtml += `
+                <a href="${searchUrl}" target="_blank" class="app-item">
+                    <div class="app-info">
+                        <div class="play-icon-row">
+                            <svg class="play-icon-svg" viewBox="0 0 24 24" width="12" height="12">
+                                <path fill="#3b82f6" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.07c.69-.84 1.15-2.01 1.02-3.18-1 .04-2.21.67-2.92 1.51-.63.74-1.18 1.93-1.03 3.09 1.12.09 2.24-.56 2.93-1.42z"/>
+                            </svg>
+                            <span class="download-text" style="color: #3b82f6;">تحميل</span>
                         </div>
                         <div class="app-name">${app.name}</div>
                     </div>
@@ -210,7 +257,7 @@ const server = http.createServer((req, res) => {
                 <span style="color: #00ff96; font-size: 16px;">‹</span>
             </a>
 
-            <a href="${IOS_APP_URL}" target="_blank" class="app-option-btn" style="border-color: rgba(50,150,255,0.2);">
+            <a href="javascript:void(0);" onclick="openIosApps()" class="app-option-btn" style="border-color: rgba(50,150,255,0.2);">
                 <div class="app-icon-text">
                     <span style="font-size: 18px;">🍏</span>
                     <span style="color: #3b82f6;">تطبيقات الآيفون</span>
@@ -231,6 +278,21 @@ const server = http.createServer((req, res) => {
             </div>
             <div class="apps-list">
                 ${androidAppsHtml}
+            </div>
+        </div>
+    </div>
+
+    <div id="iosModal" class="sub-modal-overlay">
+        <div class="sub-modal-box">
+            <div class="sub-modal-header">
+                <div class="sub-modal-title">تطبيقات الآيفون (24)</div>
+                <div class="sub-modal-actions">
+                    <button class="back-btn" onclick="backToIosMain()">رجوع ⟨</button>
+                    <button class="close-sub-btn" onclick="closeIosModal()">✕</button>
+                </div>
+            </div>
+            <div class="apps-list">
+                ${iosAppsHtml}
             </div>
         </div>
     </div>
@@ -265,15 +327,27 @@ const server = http.createServer((req, res) => {
             document.getElementById('androidModal').style.display = 'none';
         }
 
+        function openIosApps() {
+            document.getElementById('appsModal').style.display = 'none';
+            document.getElementById('iosModal').style.display = 'flex';
+        }
+
+        function backToIosMain() {
+            document.getElementById('iosModal').style.display = 'none';
+            document.getElementById('appsModal').style.display = 'flex';
+        }
+
+        function closeIosModal() {
+            document.getElementById('iosModal').style.display = 'none';
+        }
+
         window.onclick = function(event) {
             var modal = document.getElementById('appsModal');
             var androidModal = document.getElementById('androidModal');
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
-            if (event.target == androidModal) {
-                androidModal.style.display = 'none';
-            }
+            var iosModal = document.getElementById('iosModal');
+            if (event.target == modal) { modal.style.display = 'none'; }
+            if (event.target == androidModal) { androidModal.style.display = 'none'; }
+            if (event.target == iosModal) { iosModal.style.display = 'none'; }
         }
     </script>
 </body>
