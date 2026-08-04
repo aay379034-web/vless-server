@@ -7,27 +7,27 @@ const TELEGRAM_BOT_URL = "https://t.me/Hassan0008bot?start=start";
 const TELEGRAM_CHANNEL_URL = "#"; 
 const IOS_APP_URL = "#";
 
-// قائمة تطبيقات الأندرويد الـ 19 مع حزم متجر جوجل بلاي الحقيقية والصحيحة
+// قائمة التطبيقات مع توجيه ذكي لمتجر جوجل بلاي
 const androidApps = [
-    { name: "NetMod VPN Client (V2Ray/SSH)", pkg: "com.netmod.vpn" },
-    { name: "DarkTunnel - SSH DNSTT V2Ray", pkg: "com.darktunnel.app" },
-    { name: "Hiddify", pkg: "app.hiddify.com" },
-    { name: "HiddifyNG v2ray, reality, xray", pkg: "com.hiddify.ng" },
-    { name: "V2Box", pkg: "dev.v2box.app" },
-    { name: "v2RayTun", pkg: "com.v2raytun.android" },
-    { name: "OneXray", pkg: "com.onexray.app" },
-    { name: "sing-box", pkg: "io.nekohasekai.sfa" },
-    { name: "Npv Tunnel V2Ray/SSH", pkg: "com.npv.tunnel" },
-    { name: "V2RayGG", pkg: "com.v2ray.gg" },
-    { name: "V2Ray Client+", pkg: "com.v2ray.clientplus" },
-    { name: "Alice VPN", pkg: "com.alice.vpn" },
-    { name: "e-V2ray", pkg: "com.ev2ray.app" },
-    { name: "V2ray Tunnel Plus", pkg: "com.v2ray.tunnelplus" },
-    { name: "HTTP Injector (SSH/V2ray) VPN", pkg: "com.evozi.injector" },
-    { name: "OpenTunnel", pkg: "com.opentunnel.app" },
-    { name: "CREEB INJECTOR (SSH/DNS/UDP)", pkg: "com.creeb.injector" },
-    { name: "V2K PROTO - vpn v2ray custom", pkg: "com.v2k.proto" },
-    { name: "V2Ray plugin for HTTP Injector", pkg: "com.evozi.v2ray" }
+    { name: "NetMod VPN Client (V2Ray/SSH)", query: "NetMod VPN Client V2Ray" },
+    { name: "DarkTunnel - SSH DNSTT V2Ray", query: "DarkTunnel SSH DNSTT V2Ray" },
+    { name: "Hiddify", query: "Hiddify proxy client" },
+    { name: "HiddifyNG v2ray, reality, xray", query: "HiddifyNG v2ray" },
+    { name: "V2Box", query: "V2Box VLS client" },
+    { name: "v2RayTun", query: "v2RayTun vpn" },
+    { name: "OneXray", query: "OneXray vpn" },
+    { name: "sing-box", query: "sing-box" },
+    { name: "Npv Tunnel V2Ray/SSH", query: "Npv Tunnel V2Ray" },
+    { name: "V2RayGG", query: "V2RayGG" },
+    { name: "V2Ray Client+", query: "V2Ray Client" },
+    { name: "Alice VPN", query: "Alice VPN" },
+    { name: "e-V2ray", query: "e-V2ray" },
+    { name: "V2ray Tunnel Plus", query: "V2ray Tunnel Plus" },
+    { name: "HTTP Injector (SSH/V2ray) VPN", query: "HTTP Injector SSH V2ray" },
+    { name: "OpenTunnel", query: "OpenTunnel vpn" },
+    { name: "CREEB INJECTOR (SSH/DNS/UDP)", query: "CREEB INJECTOR" },
+    { name: "V2K PROTO - vpn v2ray custom", query: "V2K PROTO vpn" },
+    { name: "V2Ray plugin for HTTP Injector", query: "V2Ray plugin for HTTP Injector" }
 ];
 
 const users = [
@@ -59,9 +59,9 @@ const server = http.createServer((req, res) => {
 
         let androidAppsHtml = '';
         androidApps.forEach((app) => {
-            let playStoreUrl = `https://play.google.com/store/apps/details?id=${app.pkg}`;
+            let searchUrl = `https://play.google.com/store/search?q=${encodeURIComponent(app.query)}&c=apps`;
             androidAppsHtml += `
-                <a href="${playStoreUrl}" target="_blank" class="app-item">
+                <a href="${searchUrl}" target="_blank" class="app-item">
                     <div class="app-info">
                         <div class="play-icon-row">
                             <svg class="play-icon-svg" viewBox="0 0 24 24" width="12" height="12">
@@ -72,7 +72,7 @@ const server = http.createServer((req, res) => {
                         <div class="app-name">${app.name}</div>
                     </div>
                     <div class="app-logo-box">
-                        <span style="font-size: 14px; font-weight: bold; color: #fff;">⚡</span>
+                        <span style="font-size: 14px; font-weight: bold; color: #00ff80;">🚀</span>
                     </div>
                 </a>
             `;
@@ -116,15 +116,13 @@ const server = http.createServer((req, res) => {
         .bottom-btn { flex: 1; background: #121212; border: 1px solid rgba(255,255,255,0.1); padding: 14px; border-radius: 16px; text-align: center; color: #fff; font-size: 13px; font-weight: bold; cursor: pointer; text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 6px; }
         .full-btn { display: block; width: 100%; background: #121212; border: 1px solid rgba(255,255,255,0.1); padding: 12px; border-radius: 16px; text-align: center; color: #fff; font-size: 13px; font-weight: bold; margin-top: 10px; cursor: pointer; text-decoration: none; box-sizing: border-box; }
 
-        /* تنسيق النافذة الأولى */
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); z-index: 1000; justify-content: center; align-items: center; }
         .modal-box { background: #0c0c0e; border: 1px solid rgba(255,255,255,0.1); width: 90%; max-width: 380px; border-radius: 24px; padding: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.9); position: relative; box-sizing: border-box; }
         .modal-close { background: none; border: none; color: #aaa; font-size: 20px; cursor: pointer; position: absolute; top: 15px; left: 15px; }
         .modal-title { text-align: center; font-size: 16px; font-weight: bold; color: #fff; margin-bottom: 20px; margin-top: 5px; }
-        .app-option-btn { display: flex; justify-content: space-between; align-items: center; background: #141418; border: 1px solid rgba(255,255,255,0.08); padding: 15px; border-radius: 16px; margin-bottom: 12px; text-decoration: none; color: #fff; font-size: 14px; font-weight: bold; transition: 0.2s; }
+        .app-option-btn { display: flex; justify-content: space-between; align-items: center; background: #141418; border: 1px solid rgba(255,255,255,0.08); padding: 15px; border-radius: 16px; margin-bottom: 12px; text-decoration: none; color: #fff; font-size: 14px; font-weight: bold; }
         .app-icon-text { display: flex; align-items: center; gap: 10px; }
 
-        /* تنسيق نافذة تطبيقات الأندرويد المطابقة للصور */
         .sub-modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); z-index: 1100; justify-content: center; align-items: center; }
         .sub-modal-box { background: #0c0c0e; border: 1px solid rgba(255,255,255,0.15); width: 92%; max-width: 400px; height: 82vh; border-radius: 24px; padding: 15px; box-shadow: 0 15px 35px rgba(0,0,0,0.9); display: flex; flex-direction: column; box-sizing: border-box; }
         .sub-modal-header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 10px; }
@@ -200,7 +198,6 @@ const server = http.createServer((req, res) => {
         <a href="javascript:void(0);" onclick="openModal()" class="full-btn" style="background: #121212; color: #ffaa00;">📱 روابط التطبيقات</a>
     </div>
 
-    <!-- نافذة اختيار النظام -->
     <div id="appsModal" class="modal-overlay">
         <div class="modal-box">
             <button class="modal-close" onclick="closeModal()">✕</button>
@@ -224,7 +221,6 @@ const server = http.createServer((req, res) => {
         </div>
     </div>
 
-    <!-- نافذة قائمة تطبيقات الأندرويد -->
     <div id="androidModal" class="sub-modal-overlay">
         <div class="sub-modal-box">
             <div class="sub-modal-header">
