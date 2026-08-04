@@ -3,11 +3,10 @@ const http = require('http');
 const PORT = process.env.PORT || 3000;
 const WS_PATH = '/vless-ws';
 
-// قائمة الأشخاص بأسماء تبدأ بكلمة "بيع" ومجموعة من الأسماء العشوائية
 const users = [
-    { name: "بيع - سرفر 1", uuid: "b83296c0-4534-4d85-8240-a30999554589" },
-    { name: "بيع - سرفر 2", uuid: "1a2b3c4d-5678-90ab-cdef-123456789abc" },
-    { name: "بيع - سرفر 3", uuid: "7c9e6679-7425-40de-944b-e07fc1f90ae7" }
+    { name: "بيع - سرور 1", uuid: "b83296c0-4534-4d85-8240-a30999554589" },
+    { name: "بيع - سرور 2", uuid: "1a2b3c4d-5678-90ab-cdef-123456789abc" },
+    { name: "بيع - سرور 3", uuid: "7c9e6679-7425-40de-944b-e07fc1f90ae7" }
 ];
 
 const server = http.createServer((req, res) => {
@@ -36,7 +35,7 @@ const server = http.createServer((req, res) => {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>معلومات الاشتراك</title>
+    <title>منصة بيع</title>
     <style>
         body { font-family: Tahoma, sans-serif; background: #000000; margin: 0; padding: 15px; color: #fff; min-height: 100vh; }
         .container { max-width: 450px; margin: 0 auto; background: #080808; padding: 20px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); border: 1px solid rgba(255,255,255,0.1); }
@@ -72,7 +71,7 @@ const server = http.createServer((req, res) => {
 </head>
 <body>
     <div class="container">
-        <div class="main-title">معلومات الاشتراك</div>
+        <div class="main-title">منصة بيع</div>
         
         <div class="top-cards">
             <div class="top-card">
@@ -146,3 +145,4 @@ const server = http.createServer((req, res) => {
 server.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+    
