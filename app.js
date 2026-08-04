@@ -29,30 +29,30 @@ const androidApps = [
 ];
 
 const iosApps = [
-    { name: "V2Box - V2ray Client", query: "V2Box V2ray Client" },
-    { name: "V2Box Pro - V2ray Client", query: "V2Box Pro V2ray Client" },
-    { name: "Hiddify Proxy & VPN", query: "Hiddify Proxy VPN" },
-    { name: "Streisand", query: "Streisand vpn" },
-    { name: "v2RayTun", query: "v2RayTun" },
-    { name: "Fair VPN", query: "Fair VPN" },
-    { name: "Happ - Proxy Utility", query: "Happ Proxy Utility" },
-    { name: "OneXray", query: "OneXray" },
-    { name: "OneClick - Safe, Easy & Fast", query: "OneClick VPN" },
-    { name: "VPN - Mango V2ray", query: "VPN Mango V2ray" },
-    { name: "Shadowrocket", query: "Shadowrocket" },
-    { name: "Karing", query: "Karing vpn" },
-    { name: "sing-box VT", query: "sing-box" },
-    { name: "Loon", query: "Loon vpn" },
-    { name: "Loon Lite", query: "Loon Lite" },
-    { name: "Stash - Rule Based Proxy", query: "Stash Rule Based Proxy" },
-    { name: "Quantumult X", query: "Quantumult X" },
-    { name: "Egern", query: "Egern vpn" },
-    { name: "Nextin", query: "Nextin vpn" },
-    { name: "Everywhere Proxy", query: "Everywhere Proxy" },
-    { name: "Pawdoll", query: "Pawdoll" },
-    { name: "Clash Plus - Smart Proxy Tool", query: "Clash Plus Smart Proxy Tool" },
-    { name: "Clash Lite", query: "Clash Lite" },
-    { name: "OTun-M", query: "OTun-M" }
+    { name: "V2Box - V2ray Client", query: "V2Box V2ray Client", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#18181b"/><text x="50" y="62" font-size="32" font-weight="bold" fill="#fff" text-anchor="middle">V2</text></svg>` },
+    { name: "V2Box Pro - V2ray Client", query: "V2Box Pro V2ray Client", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#18181b"/><text x="50" y="62" font-size="30" font-weight="bold" fill="#00ffc4" text-anchor="middle">V2P</text></svg>` },
+    { name: "Hiddify Proxy & VPN", query: "Hiddify Proxy VPN", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#fff"/><rect x="25" y="45" width="12" height="30" fill="#3b82f6"/><rect x="44" y="30" width="12" height="45" fill="#3b82f6"/><rect x="63" y="55" width="12" height="20" fill="#3b82f6"/></svg>` },
+    { name: "Streisand", query: "Streisand vpn", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#1e1b4b"/><path d="M30 30L70 70M70 30L30 70" stroke="#38bdf8" stroke-width="12" stroke-linecap="round"/></svg>` },
+    { name: "v2RayTun", query: "v2RayTun", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#18181b"/><text x="50" y="62" font-size="32" font-weight="bold" fill="#fff" text-anchor="middle">V2</text></svg>` },
+    { name: "Fair VPN", query: "Fair VPN", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#16a34a"/><text x="50" y="62" font-size="32" font-weight="bold" fill="#fff" text-anchor="middle">F</text></svg>` },
+    { name: "Happ - Proxy Utility", query: "Happ Proxy Utility", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#27272a"/><text x="50" y="62" font-size="32" font-weight="bold" fill="#fff" text-anchor="middle">H</text></svg>` },
+    { name: "OneXray", query: "OneXray", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#007acc"/><path d="M30 30L70 70M70 30L30 70" stroke="#fff" stroke-width="16" stroke-linecap="round"/></svg>` },
+    { name: "OneClick - Safe, Easy & Fast", query: "OneClick VPN", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#27272a"/><text x="50" y="62" font-size="30" font-weight="bold" fill="#fff" text-anchor="middle">∞</text></svg>` },
+    { name: "VPN - Mango V2ray", query: "VPN Mango V2ray", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#18181b"/><text x="50" y="62" font-size="28" font-weight="bold" fill="#f97316" text-anchor="middle">M</text></svg>` },
+    { name: "Shadowrocket", query: "Shadowrocket", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#fff"/><path d="M50 25L65 55H35Z" fill="#3b82f6"/></svg>` },
+    { name: "Karing", query: "Karing vpn", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#3b82f6"/><text x="50" y="62" font-size="24" font-weight="bold" fill="#fff" text-anchor="middle">K</text></svg>` },
+    { name: "sing-box VT", query: "sing-box", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#3f3f46"/><path d="M25 35L50 20L75 35V65L50 80L25 65Z" fill="#52525b" stroke="#71717a" stroke-width="4"/></svg>` },
+    { name: "Loon", query: "Loon vpn", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#a855f7"/><circle cx="50" cy="50" r="20" fill="#fff"/></svg>` },
+    { name: "Loon Lite", query: "Loon Lite", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#f43f5e"/><circle cx="50" cy="50" r="20" fill="#fff"/></svg>` },
+    { name: "Stash - Rule Based Proxy", query: "Stash Rule Based Proxy", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#0284c7"/><circle cx="50" cy="50" r="22" fill="none" stroke="#fff" stroke-width="6"/></svg>` },
+    { name: "Quantumult X", query: "Quantumult X", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#fff"/><path d="M50 30L70 70H30Z" fill="#ef4444"/></svg>` },
+    { name: "Egern", query: "Egern vpn", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#0ea5e9"/><text x="50" y="62" font-size="28" font-weight="bold" fill="#fff" text-anchor="middle">E</text></svg>` },
+    { name: "Nextin", query: "Nextin vpn", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#ccfbf1"/><text x="50" y="62" font-size="28" font-weight="bold" fill="#0d9488" text-anchor="middle">N</text></svg>` },
+    { name: "Everywhere Proxy", query: "Everywhere Proxy", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#1e3a8a"/><text x="50" y="62" font-size="24" font-weight="bold" fill="#fff" text-anchor="middle">EP</text></svg>` },
+    { name: "Pawdoll", query: "Pawdoll", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#818cf8"/><text x="50" y="62" font-size="24" font-weight="bold" fill="#fff" text-anchor="middle">PAW</text></svg>` },
+    { name: "Clash Plus - Smart Proxy Tool", query: "Clash Plus Smart Proxy Tool", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#34d399"/><text x="50" y="62" font-size="24" font-weight="bold" fill="#fff" text-anchor="middle">C+</text></svg>` },
+    { name: "Clash Lite", query: "Clash Lite", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#e0e7ff"/><text x="50" y="62" font-size="24" font-weight="bold" fill="#4f46e5" text-anchor="middle">CL</text></svg>` },
+    { name: "OTun-M", query: "OTun-M", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#f59e0b"/><text x="50" y="62" font-size="24" font-weight="bold" fill="#fff" text-anchor="middle">OT</text></svg>` }
 ];
 
 const users = [
@@ -105,7 +105,7 @@ const server = http.createServer((req, res) => {
 
         let iosAppsHtml = '';
         iosApps.forEach((app) => {
-            let searchUrl = `https://apps.apple.com/us/search?term=${encodeURIComponent(app.query)}`;
+            let searchUrl = `https://www.google.com/search?q=site:apps.apple.com+${encodeURIComponent(app.query)}`;
             iosAppsHtml += `
                 <a href="${searchUrl}" target="_blank" class="app-item">
                     <div class="app-info">
@@ -118,7 +118,7 @@ const server = http.createServer((req, res) => {
                         <div class="app-name">${app.name}</div>
                     </div>
                     <div class="app-logo-box">
-                        <svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#18181b"/><text x="50" y="62" font-size="28" font-weight="bold" fill="#fff" text-anchor="middle">iOS</text></svg>
+                        ${app.iconSvg}
                     </div>
                 </a>
             `;
@@ -364,4 +364,4 @@ const server = http.createServer((req, res) => {
 server.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
-  
+     
