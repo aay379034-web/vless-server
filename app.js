@@ -3,10 +3,11 @@ const http = require('http');
 const PORT = process.env.PORT || 3000;
 const WS_PATH = '/vless-ws';
 
+// قائمة الأشخاص بأسماء تبدأ بكلمة "بيع" ومجموعة من الأسماء العشوائية
 const users = [
-    { name: "IRAQI 🇮🇶 - pubg-eSimIRAQ", uuid: "b83296c0-4534-4d85-8240-a30999554589" },
-    { name: "IRAQI 🇮🇶 - twitter-eSimIRAQ", uuid: "1a2b3c4d-5678-90ab-cdef-123456789abc" },
-    { name: "IRAQI 🇮🇶 - waze-eSimIRAQ", uuid: "7c9e6679-7425-40de-944b-e07fc1f90ae7" }
+    { name: "بيع - سرفر 1", uuid: "b83296c0-4534-4d85-8240-a30999554589" },
+    { name: "بيع - سرفر 2", uuid: "1a2b3c4d-5678-90ab-cdef-123456789abc" },
+    { name: "بيع - سرفر 3", uuid: "7c9e6679-7425-40de-944b-e07fc1f90ae7" }
 ];
 
 const server = http.createServer((req, res) => {
