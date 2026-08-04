@@ -6,7 +6,6 @@ const UUID = process.env.UUID || 'b83296c0-4534-4d85-8240-a30999554589';
 const PATH = process.env.PATH || '/vless-ws';
 
 const server = http.createServer((req, res) => {
-    // إذا دخلت من المتصفح العادي، تفتح لك لوحة التحكم (صفحة الويب)
     if (req.url === '/' || req.url === '') {
         res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
         res.end(`
@@ -43,7 +42,6 @@ const server = http.createServer((req, res) => {
             </html>
         `);
     } else if (req.url === PATH) {
-        // هذا مسار البروكسي الأساسي ليعمل السيرفر بدون مشاكل
         res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
         res.end('VLESS WebSocket Server is Running');
     } else {
