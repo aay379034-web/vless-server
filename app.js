@@ -13,30 +13,81 @@ const server = http.createServer((req, res) => {
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>لوحة تحكم السيرفر</title>
+                <title>معلومات الاشتراك</title>
                 <style>
-                    body { font-family: Tahoma, sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px; color: #333; }
-                    .container { max-width: 600px; margin: 0 auto; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-                    h2 { color: #007bff; text-align: center; }
-                    .status-box { background: #e9ecef; padding: 15px; border-radius: 6px; margin: 15px 0; }
-                    .status-online { color: #28a745; font-weight: bold; }
-                    .btn { display: block; width: 100%; padding: 12px; background: #007bff; color: white; text-align: center; text-decoration: none; border-radius: 5px; font-size: 16px; margin-top: 10px; border: none; cursor: pointer; }
-                    .btn:hover { background: #0056b3; }
-                    code { background: #fff; padding: 8px; border: 1px solid #ccc; display: block; margin-top: 5px; word-break: break-all; font-size: 14px; border-radius: 4px; }
+                    body { font-family: Tahoma, sans-serif; background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); margin: 0; padding: 15px; color: #fff; min-height: 100vh; }
+                    .container { max-width: 450px; margin: 0 auto; background: rgba(22, 19, 48, 0.85); padding: 20px; border-radius: 20px; box-shadow: 0 8px 32px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); }
+                    h2 { text-align: center; color: #fff; margin-bottom: 20px; font-size: 22px; }
+                    .cards-row { display: flex; gap: 10px; margin-bottom: 15px; }
+                    .card { flex: 1; background: rgba(255, 255, 255, 0.05); padding: 15px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.08); text-align: center; }
+                    .card h4 { margin: 0 0 10px 0; font-size: 14px; color: #b8b8d0; }
+                    .card .value { font-size: 18px; font-weight: bold; color: #00ffcc; }
+                    .info-box { background: rgba(255, 255, 255, 0.05); padding: 15px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.08); margin-bottom: 15px; }
+                    .info-row { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 14px; }
+                    .info-row:last-child { margin-bottom: 0; }
+                    .badge-active { background: rgba(0, 255, 128, 0.15); color: #00ff80; padding: 3px 10px; border-radius: 20px; font-size: 12px; }
+                    .sub-section-title { font-size: 16px; margin: 20px 0 10px 0; color: #b8b8d0; display: flex; justify-content: space-between; align-items: center; }
+                    .link-box { background: rgba(0, 0, 0, 0.3); padding: 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); margin-bottom: 10px; }
+                    .link-title { font-size: 13px; margin-bottom: 8px; color: #00ffcc; display: flex; justify-content: space-between; }
+                    .link-content { display: flex; gap: 8px; }
+                    input[type="text"] { flex: 1; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); padding: 8px; border-radius: 8px; color: #fff; font-size: 12px; direction: ltr; text-align: left; }
+                    .copy-btn { background: #3b82f6; color: white; border: none; padding: 8px 14px; border-radius: 8px; cursor: pointer; font-size: 12px; font-weight: bold; }
+                    .copy-btn:hover { background: #2563eb; }
                 </style>
             </head>
             <body>
                 <div class="container">
-                    <h2>لوحة تحكم السيرفر</h2>
-                    <div class="status-box">
-                        <p>حالة السيرفر: <span class="status-online">متصل وشغال (Online)</span></p>
-                        <p><strong>معلومات الاتصال (UUID):</strong></p>
-                        <code>${UUID}</code>
-                        <p style="margin-top: 10px;"><strong>مسار الاتصال (Path):</strong></p>
-                        <code>${PATH}</code>
+                    <h2>معلومات الاشتراك</h2>
+                    
+                    <div class="cards-row">
+                        <div class="card">
+                            <h4>الاستهلاك</h4>
+                            <div class="value" style="color: #00ff80;">غير محدود</div>
+                        </div>
+                        <div class="card">
+                            <h4>الأيام المتبقية</h4>
+                            <div class="value">∞</div>
+                        </div>
                     </div>
-                    <a href="/" class="btn">تحديث الصفحة</a>
+
+                    <div class="info-box">
+                        <div class="info-row">
+                            <span>الحالة:</span>
+                            <span class="badge-active">فعال (Online)</span>
+                        </div>
+                        <div class="info-row">
+                            <span>الاستهلاك الكلي:</span>
+                            <span style="color: #ffaa00;">مفتوح</span>
+                        </div>
+                        <div class="info-row">
+                            <span>مسار الاتصال (Path):</span>
+                            <span style="direction: ltr; color: #00ffcc;">${PATH}</span>
+                        </div>
+                    </div>
+
+                    <div class="sub-section-title">
+                        <span>معلومات الاشتراك (VLESS)</span>
+                    </div>
+
+                    <div class="link-box">
+                        <div class="link-title">
+                            <span>IRAQ 🇮🇶 - Server Link</span>
+                        </div>
+                        <div class="link-content">
+                            <input type="text" id="vlessLink" value="vless://${UUID}@${req.headers.host || 'server'}?encryption=none&security=none&type=ws&path=${PATH}#IRAQ-Server" readonly>
+                            <button class="copy-btn" onclick="copyText()">نسخ</button>
+                        </div>
+                    </div>
                 </div>
+
+                <script>
+                    function copyText() {
+                        var copyText = document.getElementById("vlessLink");
+                        copyText.select();
+                        navigator.clipboard.writeText(copyText.value);
+                        alert("تم نسخ رابط الاشتراك بنجاح!");
+                    }
+                </script>
             </body>
             </html>
         `);
