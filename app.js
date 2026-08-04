@@ -7,122 +7,26 @@ const TELEGRAM_BOT_URL = "https://t.me/Hassan0008bot?start=start";
 const TELEGRAM_CHANNEL_URL = "#"; 
 const IOS_APP_URL = "#";
 
-// قائمة التطبيقات مع أيقوناتها الحقيقية وصورها الرمزية المطابقة للصورة
 const androidApps = [
-    { 
-        name: "NetMod VPN Client (V2Ray/SSH)", 
-        pkg: "com.netmod.vpn", 
-        iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#fff"/><path d="M30 70V45l20 15 20-15v25H30z" fill="#ea4335"/><path d="M30 35l20 15 20-15-20-15-20 15z" fill="#ea4335"/><text x="50" y="62" font-size="36" font-weight="bold" fill="#fff" text-anchor="middle">M</text></svg>`,
-        fallbackText: "M", bg: "#fff" 
-    },
-    { 
-        name: "DarkTunnel - SSH DNSTT V2Ray", 
-        pkg: "com.darktunnel.app", 
-        iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#121212"/><text x="50" y="60" font-size="18" font-weight="bold" fill="#fff" text-anchor="middle">DARK</text></svg>`,
-        fallbackText: "D", bg: "#121212" 
-    },
-    { 
-        name: "Hiddify", 
-        pkg: "app.hiddify.com", 
-        iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#fff"/><rect x="25" y="45" width="12" height="30" fill="#3b82f6"/><rect x="44" y="30" width="12" height="45" fill="#3b82f6"/><rect x="63" y="55" width="12" height="20" fill="#3b82f6"/></svg>`,
-        fallbackText: "H", bg: "#fff" 
-    },
-    { 
-        name: "HiddifyNG v2ray, reality, xray", 
-        pkg: "com.hiddify.ng", 
-        iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#fff"/><rect x="25" y="45" width="12" height="30" fill="#3b82f6"/><rect x="44" y="30" width="12" height="45" fill="#3b82f6"/><rect x="63" y="55" width="12" height="20" fill="#3b82f6"/></svg>`,
-        fallbackText: "H", bg: "#fff" 
-    },
-    { 
-        name: "V2Box", 
-        pkg: "dev.v2box.app", 
-        iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#18181b"/><text x="50" y="62" font-size="32" font-weight="bold" fill="#fff" text-anchor="middle">V2</text></svg>`,
-        fallbackText: "V2", bg: "#18181b" 
-    },
-    { 
-        name: "v2RayTun", 
-        pkg: "com.v2raytun.android", 
-        iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#18181b"/><text x="50" y="62" font-size="32" font-weight="bold" fill="#fff" text-anchor="middle">V2</text></svg>`,
-        fallbackText: "V2", bg: "#18181b" 
-    },
-    { 
-        name: "OneXray", 
-        pkg: "com.onexray.app", 
-        iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#007acc"/><path d="M30 30L70 70M70 30L30 70" stroke="#fff" stroke-width="16" stroke-linecap="round"/></svg>`,
-        fallbackText: "X", bg: "#007acc" 
-    },
-    { 
-        name: "sing-box", 
-        pkg: "io.nekohasekai.sfa", 
-        iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#3f3f46"/><path d="M25 35L50 20L75 35V65L50 80L25 65Z" fill="#52525b" stroke="#71717a" stroke-width="4"/></svg>`,
-        fallbackText: "SB", bg: "#3f3f46" 
-    },
-    { 
-        name: "Npv Tunnel V2Ray/SSH", 
-        pkg: "com.npv.tunnel", 
-        iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#18181b"/><text x="50" y="62" font-size="28" font-weight="bold" fill="#fff" text-anchor="middle">nV</text></svg>`,
-        fallbackText: "nV", bg: "#18181b" 
-    },
-    { 
-        name: "V2RayGG", 
-        pkg: "com.v2ray.gg", 
-        iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#18181b"/><text x="50" y="62" font-size="28" font-weight="bold" fill="#fff" text-anchor="middle">GG</text></svg>`,
-        fallbackText: "GG", bg: "#18181b" 
-    },
-    { 
-        name: "V2Ray Client+", 
-        pkg: "com.v2ray.clientplus", 
-        iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#18181b"/><text x="50" y="62" font-size="28" font-weight="bold" fill="#fff" text-anchor="middle">V2+</text></svg>`,
-        fallbackText: "V2", bg: "#18181b" 
-    },
-    { 
-        name: "Alice VPN", 
-        pkg: "com.alice.vpn", 
-        iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#fff"/><circle cx="50" cy="50" r="25" fill="none" stroke="#000" stroke-width="6"/><circle cx="50" cy="50" r="8" fill="#000"/></svg>`,
-        fallbackText: "A", bg: "#fff" 
-    },
-    { 
-        name: "e-V2ray", 
-        pkg: "com.ev2ray.app", 
-        iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#18181b"/><path d="M50 75C50 75 75 55 75 40A15 15 0 0 0 50 30A15 15 0 0 0 25 40C25 55 50 75 50 75Z" fill="none" stroke="#84cc16" stroke-width="8"/></svg>`,
-        fallbackText: "eV", bg: "#18181b" 
-    },
-    { 
-        name: "V2ray Tunnel Plus", 
-        pkg: "com.v2ray.tunnelplus", 
-        iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#881337"/><path d="M50 20L75 35V65L50 80L25 65V35Z" fill="#e11d48"/></svg>`,
-        fallbackText: "P", bg: "#881337" 
-    },
-    { 
-        name: "HTTP Injector (SSH/V2ray) VPN", 
-        pkg: "com.evozi.injector", 
-        iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#334155"/><path d="M50 20L65 50H35Z" fill="#38bdf8"/><rect x="44" y="50" width="12" height="30" fill="#fbbf24"/></svg>`,
-        fallbackText: "INJ", bg: "#334155" 
-    },
-    { 
-        name: "OpenTunnel", 
-        pkg: "com.opentunnel.app", 
-        iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#475569"/><path d="M35 65L65 35M65 65L35 35" stroke="#cbd5e1" stroke-width="8"/></svg>`,
-        fallbackText: "OT", bg: "#475569" 
-    },
-    { 
-        name: "CREEB INJECTOR (SSH/DNS/UDP)", 
-        pkg: "com.creeb.injector", 
-        iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#1e293b"/><path d="M40 30L60 70M60 30L40 70" stroke="#38bdf8" stroke-width="6"/></svg>`,
-        fallbackText: "CR", bg: "#1e293b" 
-    },
-    { 
-        name: "V2K PROTO - vpn v2ray custom", 
-        pkg: "com.v2k.proto", 
-        iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#0f172a"/><text x="50" y="60" font-size="24" font-weight="bold" fill="#38bdf8" text-anchor="middle">V2K</text></svg>`,
-        fallbackText: "V2K", bg: "#0f172a" 
-    },
-    { 
-        name: "V2Ray plugin for HTTP Injector", 
-        pkg: "com.evozi.v2ray", 
-        iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#db2777"/><path d="M20 50H80M50 20V80" stroke="#fff" stroke-width="8"/></svg>`,
-        fallbackText: "PL", bg: "#db2777" 
-    }
+    { name: "NetMod VPN Client (V2Ray/SSH)", query: "NetMod VPN Client V2Ray", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#fff"/><text x="50" y="62" font-size="36" font-weight="bold" fill="#ea4335" text-anchor="middle">M</text></svg>` },
+    { name: "DarkTunnel - SSH DNSTT V2Ray", query: "DarkTunnel SSH DNSTT V2Ray", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#121212"/><text x="50" y="60" font-size="18" font-weight="bold" fill="#fff" text-anchor="middle">DARK</text></svg>` },
+    { name: "Hiddify", query: "Hiddify proxy client", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#fff"/><rect x="25" y="45" width="12" height="30" fill="#3b82f6"/><rect x="44" y="30" width="12" height="45" fill="#3b82f6"/><rect x="63" y="55" width="12" height="20" fill="#3b82f6"/></svg>` },
+    { name: "HiddifyNG v2ray, reality, xray", query: "HiddifyNG v2ray", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#fff"/><rect x="25" y="45" width="12" height="30" fill="#3b82f6"/><rect x="44" y="30" width="12" height="45" fill="#3b82f6"/><rect x="63" y="55" width="12" height="20" fill="#3b82f6"/></svg>` },
+    { name: "V2Box", query: "V2Box VLS client", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#18181b"/><text x="50" y="62" font-size="32" font-weight="bold" fill="#fff" text-anchor="middle">V2</text></svg>` },
+    { name: "v2RayTun", query: "v2RayTun vpn", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#18181b"/><text x="50" y="62" font-size="32" font-weight="bold" fill="#fff" text-anchor="middle">V2</text></svg>` },
+    { name: "OneXray", query: "OneXray vpn", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#007acc"/><path d="M30 30L70 70M70 30L30 70" stroke="#fff" stroke-width="16" stroke-linecap="round"/></svg>` },
+    { name: "sing-box", query: "sing-box", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#3f3f46"/><path d="M25 35L50 20L75 35V65L50 80L25 65Z" fill="#52525b" stroke="#71717a" stroke-width="4"/></svg>` },
+    { name: "Npv Tunnel V2Ray/SSH", query: "Npv Tunnel V2Ray", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#18181b"/><text x="50" y="62" font-size="28" font-weight="bold" fill="#fff" text-anchor="middle">nV</text></svg>` },
+    { name: "V2RayGG", query: "V2RayGG", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#18181b"/><text x="50" y="62" font-size="28" font-weight="bold" fill="#fff" text-anchor="middle">GG</text></svg>` },
+    { name: "V2Ray Client+", query: "V2Ray Client", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#18181b"/><text x="50" y="62" font-size="28" font-weight="bold" fill="#fff" text-anchor="middle">V2+</text></svg>` },
+    { name: "Alice VPN", query: "Alice VPN", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#fff"/><circle cx="50" cy="50" r="25" fill="none" stroke="#000" stroke-width="6"/></svg>` },
+    { name: "e-V2ray", query: "e-V2ray", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#18181b"/><text x="50" y="62" font-size="28" font-weight="bold" fill="#84cc16" text-anchor="middle">eV</text></svg>` },
+    { name: "V2ray Tunnel Plus", query: "V2ray Tunnel Plus", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#881337"/><text x="50" y="62" font-size="28" font-weight="bold" fill="#fff" text-anchor="middle">P</text></svg>` },
+    { name: "HTTP Injector (SSH/V2ray) VPN", query: "HTTP Injector SSH V2ray", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#334155"/><text x="50" y="62" font-size="24" font-weight="bold" fill="#38bdf8" text-anchor="middle">INJ</text></svg>` },
+    { name: "OpenTunnel", query: "OpenTunnel vpn", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#475569"/><text x="50" y="62" font-size="24" font-weight="bold" fill="#fff" text-anchor="middle">OT</text></svg>` },
+    { name: "CREEB INJECTOR (SSH/DNS/UDP)", query: "CREEB INJECTOR", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#1e293b"/><text x="50" y="62" font-size="24" font-weight="bold" fill="#38bdf8" text-anchor="middle">CR</text></svg>` },
+    { name: "V2K PROTO - vpn v2ray custom", query: "V2K PROTO vpn", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#0f172a"/><text x="50" y="60" font-size="24" font-weight="bold" fill="#38bdf8" text-anchor="middle">V2K</text></svg>` },
+    { name: "V2Ray plugin for HTTP Injector", query: "V2Ray plugin for HTTP Injector", iconSvg: `<svg viewBox="0 0 100 100" width="32" height="32"><rect width="100" height="100" rx="22" fill="#db2777"/><text x="50" y="62" font-size="24" font-weight="bold" fill="#fff" text-anchor="middle">PL</text></svg>` }
 ];
 
 const users = [
@@ -154,9 +58,9 @@ const server = http.createServer((req, res) => {
 
         let androidAppsHtml = '';
         androidApps.forEach((app) => {
-            let playStoreUrl = `https://play.google.com/store/apps/details?id=${app.pkg}`;
+            let searchUrl = `https://play.google.com/store/search?q=${encodeURIComponent(app.query)}&c=apps`;
             androidAppsHtml += `
-                <a href="${playStoreUrl}" target="_blank" class="app-item">
+                <a href="${searchUrl}" target="_blank" class="app-item">
                     <div class="app-info">
                         <div class="play-icon-row">
                             <svg class="play-icon-svg" viewBox="0 0 24 24" width="12" height="12">
@@ -386,4 +290,3 @@ const server = http.createServer((req, res) => {
 server.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
-  
