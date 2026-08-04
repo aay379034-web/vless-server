@@ -5,10 +5,30 @@ const WS_PATH = '/vless-ws';
 
 const TELEGRAM_BOT_URL = "https://t.me/Hassan0008bot?start=start"; 
 const TELEGRAM_CHANNEL_URL = "#"; 
-
-// روابط التطبيقات (يمكنك تعديلها لاحقاً بروابطك الخاصة)
-const ANDROID_APP_URL = "#";
 const IOS_APP_URL = "#";
+
+// قائمة تطبيقات الأندرويد الـ 19 مع روابط متجر جوجل بلاي المباشرة
+const androidApps = [
+    { name: "NetMod VPN Client (V2Ray/SSH)", pkg: "com.netmod.vpn" },
+    { name: "DarkTunnel - SSH DNSTT V2Ray", pkg: "com.darktunnel.app" },
+    { name: "Hiddify", pkg: "app.hiddify.com" },
+    { name: "HiddifyNG v2ray, reality, xray", pkg: "com.hiddify.ng" },
+    { name: "V2Box", pkg: "com.v2box.v2ray" },
+    { name: "v2RayTun", pkg: "com.v2raytun.android" },
+    { name: "OneXray", pkg: "com.onexray.app" },
+    { name: "sing-box", pkg: "io.nekohasekai.sfa" },
+    { name: "Npv Tunnel V2Ray/SSH", pkg: "com.npv.tunnel" },
+    { name: "V2RayGG", pkg: "com.v2ray.gg" },
+    { name: "V2Ray Client+", pkg: "com.v2ray.clientplus" },
+    { name: "Alice VPN", pkg: "com.alice.vpn" },
+    { name: "e-V2ray", pkg: "com.ev2ray.app" },
+    { name: "V2ray Tunnel Plus", pkg: "com.v2ray.tunnelplus" },
+    { name: "HTTP Injector (SSH/V2ray) VPN", pkg: "com.evozi.injector" },
+    { name: "OpenTunnel", pkg: "com.opentunnel.app" },
+    { name: "CREEB INJECTOR (SSH/DNS/UDP)", pkg: "com.creeb.injector" },
+    { name: "V2K PROTO - vpn v2ray custom", pkg: "com.v2k.proto" },
+    { name: "V2Ray plugin for HTTP Injector", pkg: "com.evozi.v2ray" }
+];
 
 const users = [
     { name: "بيع - ... 1", uuid: "b83296c0-4534-4d85-8240-a30999554589" },
@@ -34,6 +54,26 @@ const server = http.createServer((req, res) => {
                     </div>
                     <input type="text" id="vlessLink${index}" value="${link}" readonly>
                 </div>
+            `;
+        });
+
+        // توليد عناصر قائمة تطبيقات الأندرويد ديناميكياً
+        let androidAppsHtml = '';
+        androidApps.forEach((app) => {
+            let playStoreUrl = `https://play.google.com/store/apps/details?id=${app.pkg}`;
+            androidAppsHtml += `
+                <a href="${playStoreUrl}" target="_blank" class="app-item">
+                    <div class="app-info">
+                        <div class="play-icon-row">
+                            <span class="play-triangle">▶</span>
+                            <span class="download-text">تحميل</span>
+                        </div>
+                        <div class="app-name">${app.name}</div>
+                    </div>
+                    <div class="app-logo-box">
+                        <span style="font-size: 16px; color: #fff;">⚡</span>
+                    </div>
+                </a>
             `;
         });
 
@@ -75,7 +115,7 @@ const server = http.createServer((req, res) => {
         .bottom-btn { flex: 1; background: #121212; border: 1px solid rgba(255,255,255,0.1); padding: 14px; border-radius: 16px; text-align: center; color: #fff; font-size: 13px; font-weight: bold; cursor: pointer; text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 6px; }
         .full-btn { display: block; width: 100%; background: #121212; border: 1px solid rgba(255,255,255,0.1); padding: 12px; border-radius: 16px; text-align: center; color: #fff; font-size: 13px; font-weight: bold; margin-top: 10px; cursor: pointer; text-decoration: none; box-sizing: border-box; }
 
-        /* تنسيق النافذة المنبثقة (Modal) */
+        /* تنسيق النافذة المنبثقة الأولى (روابط التطبيقات) */
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); z-index: 1000; justify-content: center; align-items: center; }
         .modal-box { background: #0c0c0e; border: 1px solid rgba(255,255,255,0.1); width: 90%; max-width: 380px; border-radius: 24px; padding: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.9); position: relative; box-sizing: border-box; }
         .modal-close { background: none; border: none; color: #aaa; font-size: 20px; cursor: pointer; position: absolute; top: 15px; left: 15px; }
@@ -83,6 +123,28 @@ const server = http.createServer((req, res) => {
         .app-option-btn { display: flex; justify-content: space-between; align-items: center; background: #141418; border: 1px solid rgba(255,255,255,0.08); padding: 15px; border-radius: 16px; margin-bottom: 12px; text-decoration: none; color: #fff; font-size: 14px; font-weight: bold; transition: 0.2s; }
         .app-option-btn:hover { background: #1a1a20; }
         .app-icon-text { display: flex; align-items: center; gap: 10px; }
+
+        /* تنسيق نافذة قائمة أندرويد (تطابق الصورة تماماً) */
+        .sub-modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); z-index: 1100; justify-content: center; align-items: center; }
+        .sub-modal-box { background: #0c0c0e; border: 1px solid rgba(255,255,255,0.15); width: 92%; max-width: 400px; height: 80vh; border-radius: 24px; padding: 15px; box-shadow: 0 15px 35px rgba(0,0,0,0.9); display: flex; flex-direction: column; box-sizing: border-box; }
+        .sub-modal-header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 10px; }
+        .sub-modal-title { font-size: 15px; font-weight: bold; color: #fff; display: flex; align-items: center; gap: 6px; }
+        .sub-modal-actions { display: flex; align-items: center; gap: 15px; }
+        .back-btn { background: none; border: none; color: #aaa; font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 3px; }
+        .close-sub-btn { background: none; border: none; color: #aaa; font-size: 18px; cursor: pointer; }
+        
+        .apps-list { overflow-y: auto; flex: 1; padding-right: 2px; }
+        .apps-list::-webkit-scrollbar { width: 4px; }
+        .apps-list::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+
+        .app-item { display: flex; justify-content: space-between; align-items: center; background: #141418; border: 1px solid rgba(255,255,255,0.08); padding: 12px; border-radius: 16px; margin-bottom: 10px; text-decoration: none; transition: 0.2s; }
+        .app-item:hover { background: #1c1c24; }
+        .app-info { display: flex; flex-direction: column; gap: 4px; }
+        .play-icon-row { display: flex; align-items: center; gap: 4px; }
+        .play-triangle { color: #00ff80; font-size: 10px; }
+        .download-text { color: #00ff80; font-size: 12px; font-weight: bold; }
+        .app-name { color: #fff; font-size: 13px; font-weight: bold; }
+        .app-logo-box { width: 38px; height: 38px; background: #1c1c24; border-radius: 10px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.08); }
     </style>
 </head>
 <body>
@@ -139,13 +201,13 @@ const server = http.createServer((req, res) => {
         <a href="javascript:void(0);" onclick="openModal()" class="full-btn" style="background: #121212; color: #ffaa00;">📱 روابط التطبيقات</a>
     </div>
 
-    <!-- نافذة روابط التطبيقات المنبثقة -->
+    <!-- النافذة الأولى لاختيار النظام (أندرويد / آيفون) -->
     <div id="appsModal" class="modal-overlay">
         <div class="modal-box">
             <button class="modal-close" onclick="closeModal()">✕</button>
             <div class="modal-title">اختر نوع التطبيقات</div>
             
-            <a href="${ANDROID_APP_URL}" target="_blank" class="app-option-btn" style="border-color: rgba(0,255,150,0.2);">
+            <a href="javascript:void(0);" onclick="openAndroidApps()" class="app-option-btn" style="border-color: rgba(0,255,150,0.2);">
                 <div class="app-icon-text">
                     <span style="font-size: 18px;">🤖</span>
                     <span style="color: #00ff96;">تطبيقات الأندرويد</span>
@@ -160,6 +222,22 @@ const server = http.createServer((req, res) => {
                 </div>
                 <span style="color: #3b82f6; font-size: 16px;">‹</span>
             </a>
+        </div>
+    </div>
+
+    <!-- نافذة قائمة تطبيقات الأندرويد الـ 19 -->
+    <div id="androidModal" class="sub-modal-overlay">
+        <div class="sub-modal-box">
+            <div class="sub-modal-header">
+                <div class="sub-modal-title">تطبيقات الأندرويد (19)</div>
+                <div class="sub-modal-actions">
+                    <button class="back-btn" onclick="backToMainApps()">رجوع ⟨</button>
+                    <button class="close-sub-btn" onclick="closeAndroidModal()">✕</button>
+                </div>
+            </div>
+            <div class="apps-list">
+                ${androidAppsHtml}
+            </div>
         </div>
     </div>
 
@@ -179,11 +257,29 @@ const server = http.createServer((req, res) => {
             document.getElementById('appsModal').style.display = 'none';
         }
 
-        // إغلاق النافذة عند الضغط خارجها
+        function openAndroidApps() {
+            document.getElementById('appsModal').style.display = 'none';
+            document.getElementById('androidModal').style.display = 'flex';
+        }
+
+        function backToMainApps() {
+            document.getElementById('androidModal').style.display = 'none';
+            document.getElementById('appsModal').style.display = 'flex';
+        }
+
+        function closeAndroidModal() {
+            document.getElementById('androidModal').style.display = 'none';
+        }
+
+        // إغلاق النوافذ عند النقر في الخلفية
         window.onclick = function(event) {
             var modal = document.getElementById('appsModal');
+            var androidModal = document.getElementById('androidModal');
             if (event.target == modal) {
                 modal.style.display = 'none';
+            }
+            if (event.target == androidModal) {
+                androidModal.style.display = 'none';
             }
         }
     </script>
