@@ -1,1 +1,13 @@
-
+{
+  "name": "vless-server",
+  "version": "1.0.0",
+  "description": "VLESS WebSocket Server",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=18.x"
+  }
+}
