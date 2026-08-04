@@ -1,5 +1,4 @@
-const http = const http = require('http');
-const crypto = require('crypto');
+const http = require('http');
 
 const PORT = process.env.PORT || 3000;
 const UUID = process.env.UUID || 'b83296c0-4534-4d85-8240-a30999554589';
