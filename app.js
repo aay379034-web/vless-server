@@ -56,9 +56,9 @@ const iosApps = [
 ];
 
 const users = [
-    { name: "بيع - ... 1", uuid: "b83296c0-4534-4d85-8240-a30999554589" },
-    { name: "بيع - ... 2", uuid: "1a2b3c4d-5678-90ab-cdef-123456789abc" },
-    { name: "بيع - ... 3", uuid: "7c9e6679-7425-40de-944b-e07fc1f90ae7" }
+    { name: "💎 اشتراك رقم 1", uuid: "b83296c0-4534-4d85-8240-a30999554589" },
+    { name: "🚀 اشتراك رقم 2", uuid: "1a2b3c4d-5678-90ab-cdef-123456789abc" },
+    { name: "🔥 اشتراك رقم 3", uuid: "7c9e6679-7425-40de-944b-e07fc1f90ae7" }
 ];
 
 const server = http.createServer((req, res) => {
@@ -73,8 +73,8 @@ const server = http.createServer((req, res) => {
                     <div class="link-header">
                         <span class="link-name">${user.name}</span>
                         <div class="link-actions">
-                            <button class="qr-btn" onclick="alert('رابط الـ UUID: ${user.uuid}')">qr</button>
-                            <button class="copy-btn" onclick="copyText('vlessLink${index}')">نسخ</button>
+                            <button class="qr-btn" onclick="alert('رابط الـ UUID: ${user.uuid}')">📷 QR</button>
+                            <button class="copy-btn" onclick="copyText('vlessLink${index}')">📋 نسخ</button>
                         </div>
                     </div>
                     <input type="text" id="vlessLink${index}" value="${link}" readonly>
@@ -92,7 +92,7 @@ const server = http.createServer((req, res) => {
                             <svg class="play-icon-svg" viewBox="0 0 24 24" width="12" height="12">
                                 <path fill="#00ff80" d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
                             </svg>
-                            <span class="download-text">تحميل</span>
+                            <span class="download-text">تحميل 📥</span>
                         </div>
                         <div class="app-name">${app.name}</div>
                     </div>
@@ -113,7 +113,7 @@ const server = http.createServer((req, res) => {
                             <svg class="play-icon-svg" viewBox="0 0 24 24" width="12" height="12">
                                 <path fill="#3b82f6" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.07c.69-.84 1.15-2.01 1.02-3.18-1 .04-2.21.67-2.92 1.51-.63.74-1.18 1.93-1.03 3.09 1.12.09 2.24-.56 2.93-1.42z"/>
                             </svg>
-                            <span class="download-text" style="color: #3b82f6;">تحميل</span>
+                            <span class="download-text" style="color: #3b82f6;">تحميل 📥</span>
                         </div>
                         <div class="app-name">${app.name}</div>
                     </div>
@@ -129,140 +129,199 @@ const server = http.createServer((req, res) => {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منصة بيع</title>
+    <title>⚡ منصة بيع السيرفرات الذكية</title>
     <style>
-        body { font-family: Tahoma, sans-serif; background: #000000; margin: 0; padding: 15px; color: #fff; min-height: 100vh; }
-        .container { max-width: 450px; margin: 0 auto; background: #080808; padding: 20px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); border: 1px solid rgba(255,255,255,0.1); }
-        .main-title { text-align: center; font-size: 22px; font-weight: bold; margin-bottom: 20px; color: #ffffff; }
+        :root {
+            --bg-gradient: radial-gradient(circle at top, #111b27 0%, #05080f 100%);
+            --card-bg: rgba(18, 24, 38, 0.7);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --accent-green: #00ffc4;
+            --accent-blue: #38bdf8;
+        }
+        body { 
+            font-family: 'Segoe UI', Tahoma, sans-serif; 
+            background: var(--bg-gradient); 
+            margin: 0; 
+            padding: 15px; 
+            color: #fff; 
+            min-height: 100vh; 
+        }
+        .container { 
+            max-width: 450px; 
+            margin: 0 auto; 
+            background: var(--card-bg); 
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 22px; 
+            border-radius: 28px; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6); 
+            border: 1px solid var(--border-color); 
+        }
+        .main-title { 
+            text-align: center; 
+            font-size: 24px; 
+            font-weight: 800; 
+            margin-bottom: 22px; 
+            background: linear-gradient(45deg, #00ffc4, #38bdf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 0.5px;
+        }
         
-        .top-cards { display: flex; gap: 10px; margin-bottom: 15px; }
-        .top-card { flex: 1; background: #121212; padding: 15px; border-radius: 18px; border: 1px solid rgba(255,255,255,0.1); }
-        .top-card-title { font-size: 13px; color: #a0a0a0; margin-bottom: 8px; display: flex; align-items: center; gap: 5px; }
-        .top-card-value { font-size: 16px; font-weight: bold; color: #00ffc4; }
-        .progress-bar { background: #222222; height: 6px; border-radius: 3px; margin-top: 8px; overflow: hidden; }
-        .progress-fill { background: #00ffc4; height: 100%; width: 0%; }
+        .top-cards { display: flex; gap: 12px; margin-bottom: 18px; }
+        .top-card { 
+            flex: 1; 
+            background: rgba(255, 255, 255, 0.03); 
+            padding: 16px; 
+            border-radius: 20px; 
+            border: 1px solid var(--border-color); 
+            box-shadow: inset 0 1px 1px rgba(255,255,255,0.05);
+        }
+        .top-card-title { font-size: 13px; color: #94a3b8; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; font-weight: 600; }
+        .top-card-value { font-size: 16px; font-weight: bold; color: var(--accent-green); }
+        .progress-bar { background: rgba(255,255,255,0.08); height: 7px; border-radius: 4px; margin-top: 10px; overflow: hidden; }
+        .progress-fill { background: linear-gradient(90deg, #00ffc4, #38bdf8); height: 100%; width: 0%; border-radius: 4px; }
 
-        .info-box { background: #121212; padding: 15px; border-radius: 18px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 20px; }
-        .info-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-size: 14px; color: #a0a0a0; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 8px; }
+        .info-box { 
+            background: rgba(255, 255, 255, 0.02); 
+            padding: 18px; 
+            border-radius: 20px; 
+            border: 1px solid var(--border-color); 
+            margin-bottom: 22px; 
+        }
+        .info-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; font-size: 14px; color: #94a3b8; border-bottom: 1px solid rgba(255,255,255,0.04); padding-bottom: 10px; }
         .info-row:last-child { margin-bottom: 0; border-bottom: none; padding-bottom: 0; }
-        .badge-active { background: rgba(0, 255, 128, 0.15); color: #00ff80; padding: 3px 12px; border-radius: 20px; font-size: 12px; }
+        .badge-active { background: rgba(0, 255, 196, 0.12); color: var(--accent-green); padding: 4px 14px; border-radius: 20px; font-size: 12px; font-weight: bold; border: 1px solid rgba(0, 255, 196, 0.2); }
 
-        .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; font-size: 15px; font-weight: bold; color: #fff; }
-        .copy-all-btn { background: #121212; border: 1px solid rgba(255,255,255,0.1); color: #a0a0a0; padding: 5px 12px; border-radius: 10px; font-size: 12px; cursor: pointer; }
+        .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; font-size: 16px; font-weight: 700; color: #f8fafc; }
+        .copy-all-btn { background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); color: #cbd5e1; padding: 6px 14px; border-radius: 12px; font-size: 12px; cursor: pointer; font-weight: 600; transition: 0.2s; }
+        .copy-all-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
 
-        .link-card { background: #121212; padding: 12px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 12px; }
-        .link-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
-        .link-name { font-size: 13px; color: #fff; font-weight: bold; }
-        .link-actions { display: flex; gap: 6px; }
-        .qr-btn { background: #222222; color: #fff; border: none; padding: 5px 10px; border-radius: 8px; cursor: pointer; font-size: 11px; }
-        .copy-btn { background: #2563eb; color: #fff; border: none; padding: 5px 12px; border-radius: 8px; cursor: pointer; font-size: 11px; font-weight: bold; }
-        .link-card input[type="text"] { width: 100%; background: #000000; border: 1px solid rgba(255,255,255,0.1); padding: 8px; border-radius: 8px; color: #888; font-size: 11px; direction: ltr; text-align: left; box-sizing: border-box; }
+        .link-card { 
+            background: rgba(15, 23, 42, 0.6); 
+            padding: 14px; 
+            border-radius: 18px; 
+            border: 1px solid var(--border-color); 
+            margin-bottom: 14px; 
+            transition: 0.2s;
+        }
+        .link-card:hover { border-color: rgba(56, 189, 248, 0.3); }
+        .link-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .link-name { font-size: 14px; color: #f1f5f9; font-weight: bold; }
+        .link-actions { display: flex; gap: 8px; }
+        .qr-btn { background: rgba(255,255,255,0.06); color: #fff; border: 1px solid var(--border-color); padding: 6px 12px; border-radius: 10px; cursor: pointer; font-size: 11px; font-weight: 600; }
+        .copy-btn { background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #fff; border: none; padding: 6px 14px; border-radius: 10px; cursor: pointer; font-size: 11px; font-weight: bold; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3); }
+        .link-card input[type="text"] { width: 100%; background: #020617; border: 1px solid var(--border-color); padding: 10px; border-radius: 10px; color: #64748b; font-size: 11px; direction: ltr; text-align: left; box-sizing: border-box; }
 
-        .bottom-grid { display: flex; gap: 10px; margin-top: 20px; }
-        .bottom-btn { flex: 1; background: #121212; border: 1px solid rgba(255,255,255,0.1); padding: 14px; border-radius: 16px; text-align: center; color: #fff; font-size: 13px; font-weight: bold; cursor: pointer; text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 6px; }
-        .full-btn { display: block; width: 100%; background: #121212; border: 1px solid rgba(255,255,255,0.1); padding: 12px; border-radius: 16px; text-align: center; color: #fff; font-size: 13px; font-weight: bold; margin-top: 10px; cursor: pointer; text-decoration: none; box-sizing: border-box; }
-
-        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); z-index: 1000; justify-content: center; align-items: center; }
-        .modal-box { background: #0c0c0e; border: 1px solid rgba(255,255,255,0.1); width: 90%; max-width: 380px; border-radius: 24px; padding: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.9); position: relative; box-sizing: border-box; }
-        .modal-close { background: none; border: none; color: #aaa; font-size: 20px; cursor: pointer; position: absolute; top: 15px; left: 15px; }
-        .modal-title { text-align: center; font-size: 16px; font-weight: bold; color: #fff; margin-bottom: 20px; margin-top: 5px; }
-        .app-option-btn { display: flex; justify-content: space-between; align-items: center; background: #141418; border: 1px solid rgba(255,255,255,0.08); padding: 15px; border-radius: 16px; margin-bottom: 12px; text-decoration: none; color: #fff; font-size: 14px; font-weight: bold; }
-        .app-icon-text { display: flex; align-items: center; gap: 10px; }
-
-        .sub-modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); z-index: 1100; justify-content: center; align-items: center; }
-        .sub-modal-box { background: #0c0c0e; border: 1px solid rgba(255,255,255,0.15); width: 92%; max-width: 400px; height: 82vh; border-radius: 24px; padding: 15px; box-shadow: 0 15px 35px rgba(0,0,0,0.9); display: flex; flex-direction: column; box-sizing: border-box; }
-        .sub-modal-header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 10px; }
-        .sub-modal-title { font-size: 15px; font-weight: bold; color: #fff; }
-        .sub-modal-actions { display: flex; align-items: center; gap: 12px; }
-        .back-btn { background: none; border: none; color: #aaa; font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 3px; font-weight: bold; }
-        .close-sub-btn { background: none; border: none; color: #aaa; font-size: 18px; cursor: pointer; }
+        .bottom-grid { display: flex; gap: 12px; margin-top: 22px; }
+        .bottom-btn { flex: 1; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-color); padding: 16px; border-radius: 18px; text-align: center; color: #fff; font-size: 13px; font-weight: bold; cursor: pointer; text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: 0.2s; }
+        .bottom-btn:hover { background: rgba(255, 255, 255, 0.07); transform: translateY(-2px); }
         
-        .apps-list { overflow-y: auto; flex: 1; padding-right: 2px; }
-        .apps-list::-webkit-scrollbar { width: 4px; }
-        .apps-list::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+        .full-btn { display: block; width: 100%; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-color); padding: 14px; border-radius: 18px; text-align: center; color: #fff; font-size: 14px; font-weight: bold; margin-top: 12px; cursor: pointer; text-decoration: none; box-sizing: border-box; transition: 0.2s; }
+        .full-btn:hover { background: rgba(255, 255, 255, 0.07); }
 
-        .app-item { display: flex; justify-content: space-between; align-items: center; background: #141418; border: 1px solid rgba(255,255,255,0.08); padding: 12px; border-radius: 16px; margin-bottom: 10px; text-decoration: none; transition: 0.2s; }
-        .app-item:hover { background: #1c1c24; }
-        .app-info { display: flex; flex-direction: column; gap: 4px; }
-        .play-icon-row { display: flex; align-items: center; gap: 4px; }
-        .download-text { color: #00ff80; font-size: 12px; font-weight: bold; }
-        .app-name { color: #fff; font-size: 13px; font-weight: bold; text-align: right; }
-        .app-logo-box { width: 44px; height: 44px; background: #1c1c24; border-radius: 12px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.08); flex-shrink: 0; overflow: hidden; }
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(2, 6, 23, 0.85); backdrop-filter: blur(8px); z-index: 1000; justify-content: center; align-items: center; }
+        .modal-box { background: #0b1329; border: 1px solid rgba(255,255,255,0.12); width: 90%; max-width: 380px; border-radius: 26px; padding: 22px; box-shadow: 0 25px 50px rgba(0,0,0,0.9); position: relative; box-sizing: border-box; }
+        .modal-close { background: none; border: none; color: #94a3b8; font-size: 20px; cursor: pointer; position: absolute; top: 18px; left: 18px; }
+        .modal-title { text-align: center; font-size: 17px; font-weight: bold; color: #fff; margin-bottom: 22px; margin-top: 5px; }
+        .app-option-btn { display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); padding: 16px; border-radius: 18px; margin-bottom: 14px; text-decoration: none; color: #fff; font-size: 14px; font-weight: bold; transition: 0.2s; }
+        .app-option-btn:hover { background: rgba(255,255,255,0.07); transform: scale(1.02); }
+        .app-icon-text { display: flex; align-items: center; gap: 12px; }
+
+        .sub-modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(2, 6, 23, 0.85); backdrop-filter: blur(8px); z-index: 1100; justify-content: center; align-items: center; }
+        .sub-modal-box { background: #0b1329; border: 1px solid rgba(255,255,255,0.15); width: 92%; max-width: 400px; height: 84vh; border-radius: 26px; padding: 18px; box-shadow: 0 25px 50px rgba(0,0,0,0.9); display: flex; flex-direction: column; box-sizing: border-box; }
+        .sub-modal-header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 12px; }
+        .sub-modal-title { font-size: 16px; font-weight: bold; color: #fff; }
+        .sub-modal-actions { display: flex; align-items: center; gap: 12px; }
+        .back-btn { background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); color: #cbd5e1; padding: 5px 12px; border-radius: 10px; font-size: 12px; cursor: pointer; display: flex; align-items: center; gap: 4px; font-weight: bold; }
+        .close-sub-btn { background: none; border: none; color: #94a3b8; font-size: 18px; cursor: pointer; }
+        
+        .apps-list { overflow-y: auto; flex: 1; padding-right: 4px; }
+        .apps-list::-webkit-scrollbar { width: 4px; }
+        .apps-list::-webkit-scrollbar-thumb { background: #334155; border-radius: 2px; }
+
+        .app-item { display: flex; justify-content: space-between; align-items: center; background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-color); padding: 12px 14px; border-radius: 18px; margin-bottom: 12px; text-decoration: none; transition: 0.2s; }
+        .app-item:hover { background: rgba(255, 255, 255, 0.06); border-color: rgba(255,255,255,0.15); }
+        .app-info { display: flex; flex-direction: column; gap: 5px; }
+        .play-icon-row { display: flex; align-items: center; gap: 6px; }
+        .download-text { color: var(--accent-green); font-size: 12px; font-weight: bold; }
+        .app-name { color: #f1f5f9; font-size: 13px; font-weight: bold; text-align: right; }
+        .app-logo-box { width: 46px; height: 46px; background: rgba(0,0,0,0.3); border-radius: 14px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border-color); flex-shrink: 0; overflow: hidden; }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="main-title">منصة بيع</div>
+        <div class="main-title">🛡️ منصة بيع السيرفرات الذكية</div>
         
         <div class="top-cards">
             <div class="top-card">
                 <div class="top-card-title">📦 الاستهلاك</div>
-                <div class="top-card-value">0 GB <span style="font-size:11px; color:#00ff80;">0%</span></div>
+                <div class="top-card-value">0 GB <span style="font-size:11px; color:var(--accent-green);">0%</span></div>
                 <div class="progress-bar"><div class="progress-fill"></div></div>
             </div>
             <div class="top-card">
                 <div class="top-card-title">⏳ الأيام المتبقية</div>
-                <div class="top-card-value" style="color: #00ffc4;">غير محدود ∞</div>
+                <div class="top-card-value" style="color: var(--accent-green);">غير محدود ∞</div>
             </div>
         </div>
 
         <div class="info-box">
             <div class="info-row">
-                <span>الحالة:</span>
-                <span class="badge-active">فعال</span>
+                <span>⚡ حالة السيرفر:</span>
+                <span class="badge-active">🟢 فعال الآن</span>
             </div>
             <div class="info-row">
-                <span>التنزيل:</span>
-                <span style="color: #00ffc4;">0 GB</span>
+                <span>📥 حجم التنزيل:</span>
+                <span style="color: var(--accent-blue);">0 GB</span>
             </div>
             <div class="info-row">
-                <span>الرفع:</span>
-                <span style="color: #00ffc4;">0 GB</span>
+                <span>📤 حجم الرفع:</span>
+                <span style="color: var(--accent-blue);">0 GB</span>
             </div>
             <div class="info-row">
-                <span>الاستخدام الكلي:</span>
-                <span style="color: #00ffc4;">0 GB</span>
+                <span>📊 الاستخدام الكلي:</span>
+                <span style="color: var(--accent-green);">0 GB</span>
             </div>
             <div class="info-row">
-                <span>تاريخ الانتهاء:</span>
-                <span>∞</span>
+                <span>📅 تاريخ الانتهاء:</span>
+                <span>∞ مدى الحياة</span>
             </div>
         </div>
 
         <div class="section-header">
-            <span>منصة بيع</span>
-            <button class="copy-all-btn" onclick="alert('تم نسخ الكل')">نسخ الكل</button>
+            <span>🔗 اشتراكات الـ VLESS</span>
+            <button class="copy-all-btn" onclick="alert('📋 تم نسخ جميع الروابط بنجاح!')">📋 نسخ الكل</button>
         </div>
 
         ${usersHtml}
 
         <div class="bottom-grid">
-            <a href="${TELEGRAM_CHANNEL_URL}" target="_blank" class="bottom-btn">💬 قناتنا على التليграм</a>
-            <a href="${TELEGRAM_BOT_URL}" target="_blank" class="bottom-btn">🤖 الشراء المباشر من البوت</a>
+            <a href="${TELEGRAM_CHANNEL_URL}" target="_blank" class="bottom-btn">💬 قناتنا الرسمية</a>
+            <a href="${TELEGRAM_BOT_URL}" target="_blank" class="bottom-btn">🤖 الشراء من البوت</a>
         </div>
-        <a href="#" class="full-btn">📖 طريقة الاستخدام</a>
-        <a href="javascript:void(0);" onclick="openModal()" class="full-btn" style="background: #121212; color: #ffaa00;">📱 روابط التطبيقات</a>
+        <a href="#" class="full-btn">📖 طريقة التشغيل والاستخدام</a>
+        <a href="javascript:void(0);" onclick="openModal()" class="full-btn" style="background: linear-gradient(135deg, rgba(0,255,196,0.1), rgba(56,189,248,0.1)); border-color: rgba(0,255,196,0.25); color: var(--accent-green);">📱 تحميل تطبيقات التشغيل</a>
     </div>
 
     <div id="appsModal" class="modal-overlay">
         <div class="modal-box">
             <button class="modal-close" onclick="closeModal()">✕</button>
-            <div class="modal-title">اختر نوع التطبيقات</div>
+            <div class="modal-title">📂 اختر نظام التشغيل</div>
             
-            <a href="javascript:void(0);" onclick="openAndroidApps()" class="app-option-btn" style="border-color: rgba(0,255,150,0.2);">
+            <a href="javascript:void(0);" onclick="openAndroidApps()" class="app-option-btn" style="border-color: rgba(0,255,150,0.25);">
                 <div class="app-icon-text">
-                    <span style="font-size: 18px;">🤖</span>
-                    <span style="color: #00ff96;">تطبيقات الأندرويد</span>
+                    <span style="font-size: 20px;">🤖</span>
+                    <span style="color: #00ff96;">تطبيقات الأندرويد (Android)</span>
                 </div>
-                <span style="color: #00ff96; font-size: 16px;">‹</span>
+                <span style="color: #00ff96; font-size: 18px;">‹</span>
             </a>
 
-            <a href="javascript:void(0);" onclick="openIosApps()" class="app-option-btn" style="border-color: rgba(50,150,255,0.2);">
+            <a href="javascript:void(0);" onclick="openIosApps()" class="app-option-btn" style="border-color: rgba(50,150,255,0.25);">
                 <div class="app-icon-text">
-                    <span style="font-size: 18px;">🍏</span>
-                    <span style="color: #3b82f6;">تطبيقات الآيفون</span>
+                    <span style="font-size: 20px;">🍏</span>
+                    <span style="color: #3b82f6;">تطبيقات الآيفون (iOS)</span>
                 </div>
-                <span style="color: #3b82f6; font-size: 16px;">‹</span>
+                <span style="color: #3b82f6; font-size: 18px;">‹</span>
             </a>
         </div>
     </div>
@@ -270,7 +329,7 @@ const server = http.createServer((req, res) => {
     <div id="androidModal" class="sub-modal-overlay">
         <div class="sub-modal-box">
             <div class="sub-modal-header">
-                <div class="sub-modal-title">تطبيقات الأندرويد (19)</div>
+                <div class="sub-modal-title">🤖 تطبيقات الأندرويد (19)</div>
                 <div class="sub-modal-actions">
                     <button class="back-btn" onclick="backToMainApps()">رجوع ⟨</button>
                     <button class="close-sub-btn" onclick="closeAndroidModal()">✕</button>
@@ -285,7 +344,7 @@ const server = http.createServer((req, res) => {
     <div id="iosModal" class="sub-modal-overlay">
         <div class="sub-modal-box">
             <div class="sub-modal-header">
-                <div class="sub-modal-title">تطبيقات الآيفون (24)</div>
+                <div class="sub-modal-title">🍏 تطبيقات الآيفون (24)</div>
                 <div class="sub-modal-actions">
                     <button class="back-btn" onclick="backToIosMain()">رجوع ⟨</button>
                     <button class="close-sub-btn" onclick="closeIosModal()">✕</button>
@@ -302,7 +361,7 @@ const server = http.createServer((req, res) => {
             var copyText = document.getElementById(elementId);
             copyText.select();
             navigator.clipboard.writeText(copyText.value);
-            alert("تم نسخ رابط الاشتراك بنجاح!");
+            alert("📋 تم نسخ رابط الاشتراك بنجاح!");
         }
 
         function openModal() {
@@ -364,4 +423,4 @@ const server = http.createServer((req, res) => {
 server.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
-     
+  
