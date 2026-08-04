@@ -3,8 +3,8 @@ const http = require('http');
 const PORT = process.env.PORT || 3000;
 const WS_PATH = '/vless-ws';
 
-// تم تعيين معرف بوتك المباشر هنا
-const TELEGRAM_BOT_USERNAME = "Hassan0008bot"; 
+// رابط البوت للبدء وفتح القائمة مباشرة
+const TELEGRAM_BOT_URL = "https://t.me/Hassan0008bot?start=start"; 
 const TELEGRAM_CHANNEL_URL = "#"; // ضع رابط قناتك هنا إذا أردت
 
 const users = [
@@ -121,7 +121,7 @@ const server = http.createServer((req, res) => {
 
         <div class="bottom-grid">
             <a href="${TELEGRAM_CHANNEL_URL}" target="_blank" class="bottom-btn">💬 قناتنا على التليграм</a>
-            <a href="https://t.me/${TELEGRAM_BOT_USERNAME}" target="_blank" class="bottom-btn">🤖 الشراء المباشر من البوت</a>
+            <a href="${TELEGRAM_BOT_URL}" target="_blank" class="bottom-btn">🤖 الشراء المباشر من البوت</a>
         </div>
         <a href="#" class="full-btn">📖 طريقة الاستخدام</a>
         <a href="#" class="full-btn" style="background: #121212; color: #ffaa00;">📱 روابط التطبيقات</a>
