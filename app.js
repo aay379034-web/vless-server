@@ -171,42 +171,38 @@ const server = http.createServer((req, res) => {
             box-shadow: 0 20px 40px rgba(0,0,0,0.6); 
             border: 1px solid var(--border-color); 
         }
-        
-        /* رأس الصفحة المعدل بالشعار الجديد */
         .header-container { 
             display: flex; 
+            flex-direction: column; 
             align-items: center; 
-            justify-content: center; 
-            gap: 15px; 
+            text-align: center;
+            gap: 12px; 
             background: linear-gradient(135deg, rgba(16,28,63,0.9), rgba(11,19,41,0.9)); 
-            padding: 16px; 
+            padding: 20px; 
             border-radius: 22px; 
             border: 1px solid rgba(0, 255, 255, 0.2); 
             box-shadow: 0 10px 25px rgba(0,0,0,0.5); 
             margin-bottom: 22px; 
         }
         .logo-img { 
-            width: 70px; 
-            height: 70px; 
+            width: 90px; 
+            height: 90px; 
             border-radius: 50%; 
-            object-fit: cover; 
+            object-fit: cover;
             border: 2px solid #00ffff; 
-            box-shadow: 0 0 12px rgba(0, 255, 255, 0.6); 
-            flex-shrink: 0;
-            background: #000;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.6); 
         }
         .main-title { 
-            font-size: 20px; 
+            font-size: 19px; 
             font-weight: 800; 
             margin: 0; 
             background: linear-gradient(45deg, #00ffc4, #38bdf8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             letter-spacing: 0.5px;
-            text-align: right;
+            text-align: center;
             line-height: 1.4;
         }
-        
         .top-cards { display: flex; gap: 12px; margin-bottom: 18px; }
         .top-card { 
             flex: 1; 
@@ -290,9 +286,8 @@ const server = http.createServer((req, res) => {
 </head>
 <body>
     <div class="container">
-        <!-- تم تصحيح الصورة لتعمل مباشرة عبر رابط خارجي مستقر -->
         <div class="header-container">
-            <img src="https://iili.io/H1v2s79.png" onerror="this.src='https://raw.githubusercontent.com/aay379/vless-server/main/logo.png'" alt="شعار المنصة" class="logo-img">
+            <img src="https://iili.io/HiO3Pbp.png" alt="منصة بيع السيرفرات الذكية" class="logo-img" onerror="this.src='https://raw.githubusercontent.com/aay379/vless-server/main/logo.png'">
             <div class="main-title">منصة بيع السيرفرات الذكية</div>
         </div>
         
