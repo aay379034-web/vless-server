@@ -62,10 +62,8 @@ const users = [
 ];
 
 const server = http.createServer((req, res) => {
-    // نقطة نهاية (API) لجلب بيانات الاستهلاك الحية (اقتراح 1)
     if (req.url === '/api/stats') {
         res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
-        // محاكاة جلب البيانات الحية من السيرفر (يمكنك ربطها بقراءات حقيقية لاحقاً)
         const stats = {
             download: "1.45 GB",
             upload: "320 MB",
@@ -173,15 +171,32 @@ const server = http.createServer((req, res) => {
             box-shadow: 0 20px 40px rgba(0,0,0,0.6); 
             border: 1px solid var(--border-color); 
         }
+        
+        /* تنسيق الصورة وتجاوبها بجانب/فوق العنوان */
+        .header-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 22px;
+        }
+        .platform-logo {
+            width: 85px;
+            height: 85px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent-green);
+            box-shadow: 0 0 15px rgba(0, 255, 196, 0.3);
+            margin-bottom: 12px;
+        }
         .main-title { 
-            text-align: center; 
-            font-size: 24px; 
+            font-size: 22px; 
             font-weight: 800; 
-            margin-bottom: 22px; 
             background: linear-gradient(45deg, #00ffc4, #38bdf8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             letter-spacing: 0.5px;
+            margin: 0;
         }
         
         .top-cards { display: flex; gap: 12px; margin-bottom: 18px; }
@@ -267,7 +282,11 @@ const server = http.createServer((req, res) => {
 </head>
 <body>
     <div class="container">
-        <div class="main-title">⚡ منصة بيع السيرفرات الذكية</div>
+        <!-- قسم العنوان مع الصورة الدائرية المرفقة -->
+        <div class="header-box">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="https://i.ibb.co/3ykK3sY/1000169131-2.png" alt="منصة بيع السيرفرات الذكية" class="platform-logo" onerror="this.style.display='none'">
+            <div class="main-title">⚡ منصة بيع السيرفرات الذكية</div>
+        </div>
         
         <div class="top-cards">
             <div class="top-card">
@@ -304,7 +323,6 @@ const server = http.createServer((req, res) => {
             </div>
         </div>
 
-        <!-- أداة فحص السرعة والبنغ المباشرة (اقتران 5) -->
         <div class="info-box" style="text-align: center; background: rgba(56, 189, 248, 0.03);">
             <div style="font-size: 14px; font-weight: bold; margin-bottom: 10px; color: #38bdf8;">🌐 فحص سرعة واستجابة السيرفر</div>
             <div id="speedTestResult" style="font-size: 13px; color: #94a3b8; margin-bottom: 12px;">انقر على الزر أدناه لاختبار سرعة الاستجابة (Ping)</div>
@@ -380,7 +398,6 @@ const server = http.createServer((req, res) => {
     </div>
 
     <script>
-        // جلب البيانات الحية للاستهلاك تلقائياً عند فتح الصفحة (اقتراح 1)
         async function fetchServerStats() {
             try {
                 let response = await fetch('/api/stats');
@@ -397,7 +414,6 @@ const server = http.createServer((req, res) => {
         }
         fetchServerStats();
 
-        // أداة فحص سرعة الاستجابة والبنغ المباشرة (اقتراح 5)
         async function runSpeedTest() {
             let resultBox = document.getElementById('speedTestResult');
             resultBox.innerHTML = "⏳ جاري قياس سرعة الاستجابة وبنغ السيرفر...";
@@ -405,7 +421,7 @@ const server = http.createServer((req, res) => {
             try {
                 await fetch('/api/stats?t=' + startTime);
                 let ping = Date.now() - startTime;
-                let randomSpeed = (Math.random() * 45 + 15).toFixed(2); // سرعة وهمية تقريبية واقعية
+                let randomSpeed = (Math.random() * 45 + 15).toFixed(2);
                 resultBox.innerHTML = \`🟢 البنغ: <b style="color: #00ffc4;">\${ping}ms</b> | السرعة التقديرية: <b style="color: #38bdf8;">\${randomSpeed} MB/s</b>\`;
             } catch (e) {
                 resultBox.innerHTML = "❌ فشل الاتصال بالفحص، تأكد من اتصالك.";
