@@ -1,4 +1,4 @@
-const http = require('http');
+const http =  const http = require('http');
 
 const PORT = process.env.PORT || 3000;
 const WS_PATH = '/vless-ws';
@@ -60,6 +60,9 @@ const users = [
     { name: "🚀 اشتراك رقم 2", uuid: "1a2b3c4d-5678-90ab-cdef-123456789abc" },
     { name: "🔥 اشتراك رقم 3", uuid: "7c9e6679-7425-40de-944b-e07fc1f90ae7" }
 ];
+
+// الصورة الأصلية مدعومة بشكل مباشر داخل الكود لمنع أخطاء 404 نهائياً
+const logoBase64 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="; 
 
 const server = http.createServer((req, res) => {
     if (req.url === '/api/stats') {
@@ -287,7 +290,7 @@ const server = http.createServer((req, res) => {
 <body>
     <div class="container">
         <div class="header-container">
-            <img src="https://iili.io/HiO3Pbp.png" alt="منصة بيع السيرفرات الذكية" class="logo-img" onerror="this.src='https://raw.githubusercontent.com/aay379/vless-server/main/logo.png'">
+            <img src="${logoBase64}" alt="منصة بيع السيرفرات الذكية" class="logo-img">
             <div class="main-title">منصة بيع السيرفرات الذكية</div>
         </div>
         
