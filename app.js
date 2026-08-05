@@ -1,4 +1,4 @@
-const http = require('http');
+const http =   const http = require('http');
 
 const PORT = process.env.PORT || 3000;
 const WS_PATH = '/vless-ws';
@@ -269,7 +269,7 @@ const server = http.createServer((req, res) => {
 <body>
     <div class="container">
         <div class="logo-container">
-            <img src="https://i.ibb.co/hL76735/1000169131-2.png" class="platform-logo" alt="شعار المنصة">
+            <img src="https://i.ibb.co/hL76735/1000169131-2.png" onerror="this.onerror=null; this.src='https://api.iconify.design/fluent-emoji:lightning-mood.svg';" class="platform-logo" alt="شعار المنصة">
         </div>
         <div class="main-title">⚡ منصة بيع السيرفرات الذكية</div>
         
