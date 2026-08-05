@@ -268,7 +268,7 @@ const server = http.createServer((req, res) => {
 <body>
     <div class="container">
         <div class="logo-container">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" id="realLogo" class="platform-logo" alt="شعار المنصة">
+            <img src="https://i.ibb.co/hL76735/1000169131-2.png" class="platform-logo" alt="شعار المنصة">
         </div>
         <div class="main-title">⚡ منصة بيع السيرفرات الذكية</div>
         
@@ -405,7 +405,7 @@ const server = http.createServer((req, res) => {
             try {
                 await fetch('/api/stats?t=' + startTime);
                 let ping = Date.now() - startTime;
-                let randomSpeed = (Math.random() * 45 + 15).2toFixed(2);
+                let randomSpeed = (Math.random() * 45 + 15).toFixed(2);
                 resultBox.innerHTML = \`🟢 البنغ: <b style="color: #00ffc4;">\${ping}ms</b> | السرعة التقديرية: <b style="color: #38bdf8;">\${randomSpeed} MB/s</b>\`;
             } catch (e) {
                 resultBox.innerHTML = "❌ فشل الاتصال بالفحص، تأكد من اتصالك.";
