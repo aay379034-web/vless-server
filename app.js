@@ -1,4 +1,4 @@
-const http = require('http');
+const http =     const http = require('http');
 
 const PORT = process.env.PORT || 3000;
 const WS_PATH = '/vless-ws';
@@ -186,13 +186,14 @@ const server = http.createServer((req, res) => {
             margin-bottom: 22px; 
         }
         .logo-img { 
-            width: 65px; 
-            height: 65px; 
+            width: 70px; 
+            height: 70px; 
             border-radius: 50%; 
             object-fit: cover; 
             border: 2px solid #00ffff; 
             box-shadow: 0 0 12px rgba(0, 255, 255, 0.6); 
             flex-shrink: 0;
+            background: #000;
         }
         .main-title { 
             font-size: 20px; 
@@ -289,9 +290,9 @@ const server = http.createServer((req, res) => {
 </head>
 <body>
     <div class="container">
-        <!-- رأس الصفحة الجديد الذي يحتوي على الصورة والشعار بجانب العنوان تماماً -->
+        <!-- تم تصحيح الصورة لتعمل مباشرة عبر رابط خارجي مستقر -->
         <div class="header-container">
-            <img src="https://i.ibb.co/689r599/1000169107.png" alt="شعار المنصة" class="logo-img">
+            <img src="https://iili.io/H1v2s79.png" onerror="this.src='https://raw.githubusercontent.com/aay379/vless-server/main/logo.png'" alt="شعار المنصة" class="logo-img">
             <div class="main-title">منصة بيع السيرفرات الذكية</div>
         </div>
         
@@ -330,7 +331,6 @@ const server = http.createServer((req, res) => {
             </div>
         </div>
 
-        <!-- أداة فحص السرعة والبنغ المباشرة -->
         <div class="info-box" style="text-align: center; background: rgba(56, 189, 248, 0.03);">
             <div style="font-size: 14px; font-weight: bold; margin-bottom: 10px; color: #38bdf8;">🌐 فحص سرعة واستجابة السيرفر</div>
             <div id="speedTestResult" style="font-size: 13px; color: #94a3b8; margin-bottom: 12px;">انقر على الزر أدناه لاختبار سرعة الاستجابة (Ping)</div>
