@@ -1,4 +1,4 @@
-const http = require('http');
+const http =   const http = require('http');
 
 const PORT = process.env.PORT || 3000;
 const WS_PATH = '/vless-ws';
@@ -203,7 +203,7 @@ const server = http.createServer((req, res) => {
             box-shadow: inset 0 1px 1px rgba(255,255,255,0.05);
         }
         .top-card-title { font-size: 13px; color: #94a3b8; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; font-weight: 600; }
-        .top-card-value { font-size: 16px; font-weight: bold; color: var(--accent-green); }
+        .top-card-value { font-size: 16px; font-weight: bold; color: var(--accent-green); direction: ltr; text-align: right; }
         .progress-bar { background: rgba(255,255,255,0.08); height: 7px; border-radius: 4px; margin-top: 10px; overflow: hidden; }
         .progress-fill { background: linear-gradient(90deg, #00ffc4, #38bdf8); height: 100%; width: 2%; border-radius: 4px; transition: width 0.5s ease; }
         .info-box { 
@@ -215,6 +215,7 @@ const server = http.createServer((req, res) => {
         }
         .info-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; font-size: 14px; color: #94a3b8; border-bottom: 1px solid rgba(255,255,255,0.04); padding-bottom: 10px; }
         .info-row:last-child { margin-bottom: 0; border-bottom: none; padding-bottom: 0; }
+        .info-val-ltr { direction: ltr; unicode-bidi: embed; font-weight: bold; }
         .badge-active { background: rgba(0, 255, 196, 0.12); color: var(--accent-green); padding: 4px 14px; border-radius: 20px; font-size: 12px; font-weight: bold; border: 1px solid rgba(0, 255, 196, 0.2); }
         .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; font-size: 16px; font-weight: 700; color: #f8fafc; }
         .copy-all-btn { background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); color: #cbd5e1; padding: 6px 14px; border-radius: 12px; font-size: 12px; cursor: pointer; font-weight: 600; transition: 0.2s; }
@@ -291,15 +292,15 @@ const server = http.createServer((req, res) => {
             </div>
             <div class="info-row">
                 <span>📥 حجم التنزيل:</span>
-                <span style="color: var(--accent-blue);" id="statDownload">--</span>
+                <span class="info-val-ltr" style="color: var(--accent-blue);" id="statDownload">--</span>
             </div>
             <div class="info-row">
                 <span>📤 حجم الرفع:</span>
-                <span style="color: var(--accent-blue);" id="statUpload">--</span>
+                <span class="info-val-ltr" style="color: var(--accent-blue);" id="statUpload">--</span>
             </div>
             <div class="info-row">
                 <span>📊 الاستخدام الكلي:</span>
-                <span style="color: var(--accent-green);" id="statUsageFull">--</span>
+                <span class="info-val-ltr" style="color: var(--accent-green);" id="statUsageFull">--</span>
             </div>
             <div class="info-row">
                 <span>📅 تاريخ الانتهاء:</span>
@@ -386,7 +387,7 @@ const server = http.createServer((req, res) => {
             try {
                 let response = await fetch('/api/stats');
                 let data = await response.json();
-                document.getElementById('statTotal').innerHTML = data.total + \` <span style="font-size:11px; color:var(--accent-green);">\${data.percentage}%</span>\`;
+                document.getElementById('statTotal').innerHTML = \`<span style="direction: ltr; display: inline-block;">\${data.total}</span> <span style="font-size:11px; color:var(--accent-green);">\${data.percentage}%</span>\`;
                 document.getElementById('statProgress').style.width = data.percentage + '%';
                 document.getElementById('statDownload').innerText = data.download;
                 document.getElementById('statUpload').innerText = data.upload;
