@@ -62,10 +62,8 @@ const users = [
 ];
 
 const server = http.createServer((req, res) => {
-    // نقطة نهاية (API) لجلب بيانات الاستهلاك الحية (اقتراح 1)
     if (req.url === '/api/stats') {
         res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
-        // محاكاة جلب البيانات الحية من السيرفر (يمكنك ربطها بقراءات حقيقية لاحقاً)
         const stats = {
             download: "1.45 GB",
             upload: "320 MB",
@@ -145,7 +143,7 @@ const server = http.createServer((req, res) => {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>⚡ منصة بيع السيرفرات الذكية</title>
+    <title>منصة بيع السيرفرات الذكية</title>
     <style>
         :root {
             --bg-gradient: radial-gradient(circle at top, #111b27 0%, #05080f 100%);
@@ -173,15 +171,39 @@ const server = http.createServer((req, res) => {
             box-shadow: 0 20px 40px rgba(0,0,0,0.6); 
             border: 1px solid var(--border-color); 
         }
-        .main-title { 
-            text-align: center; 
-            font-size: 24px; 
-            font-weight: 800; 
+        
+        /* رأس الصفحة المعدل بالشعار الجديد */
+        .header-container { 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 15px; 
+            background: linear-gradient(135deg, rgba(16,28,63,0.9), rgba(11,19,41,0.9)); 
+            padding: 16px; 
+            border-radius: 22px; 
+            border: 1px solid rgba(0, 255, 255, 0.2); 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5); 
             margin-bottom: 22px; 
+        }
+        .logo-img { 
+            width: 65px; 
+            height: 65px; 
+            border-radius: 50%; 
+            object-fit: cover; 
+            border: 2px solid #00ffff; 
+            box-shadow: 0 0 12px rgba(0, 255, 255, 0.6); 
+            flex-shrink: 0;
+        }
+        .main-title { 
+            font-size: 20px; 
+            font-weight: 800; 
+            margin: 0; 
             background: linear-gradient(45deg, #00ffc4, #38bdf8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             letter-spacing: 0.5px;
+            text-align: right;
+            line-height: 1.4;
         }
         
         .top-cards { display: flex; gap: 12px; margin-bottom: 18px; }
@@ -267,7 +289,11 @@ const server = http.createServer((req, res) => {
 </head>
 <body>
     <div class="container">
-        <div class="main-title">⚡ منصة بيع السيرفرات الذكية</div>
+        <!-- رأس الصفحة الجديد الذي يحتوي على الصورة والشعار بجانب العنوان تماماً -->
+        <div class="header-container">
+            <img src="https://i.ibb.co/689r599/1000169107.png" alt="شعار المنصة" class="logo-img">
+            <div class="main-title">منصة بيع السيرفرات الذكية</div>
+        </div>
         
         <div class="top-cards">
             <div class="top-card">
@@ -304,7 +330,7 @@ const server = http.createServer((req, res) => {
             </div>
         </div>
 
-        <!-- أداة فحص السرعة والبنغ المباشرة (اقتران 5) -->
+        <!-- أداة فحص السرعة والبنغ المباشرة -->
         <div class="info-box" style="text-align: center; background: rgba(56, 189, 248, 0.03);">
             <div style="font-size: 14px; font-weight: bold; margin-bottom: 10px; color: #38bdf8;">🌐 فحص سرعة واستجابة السيرفر</div>
             <div id="speedTestResult" style="font-size: 13px; color: #94a3b8; margin-bottom: 12px;">انقر على الزر أدناه لاختبار سرعة الاستجابة (Ping)</div>
@@ -380,7 +406,6 @@ const server = http.createServer((req, res) => {
     </div>
 
     <script>
-        // جلب البيانات الحية للاستهلاك تلقائياً عند فتح الصفحة (اقتراح 1)
         async function fetchServerStats() {
             try {
                 let response = await fetch('/api/stats');
@@ -397,7 +422,6 @@ const server = http.createServer((req, res) => {
         }
         fetchServerStats();
 
-        // أداة فحص سرعة الاستجابة والبنغ المباشرة (اقتراح 5)
         async function runSpeedTest() {
             let resultBox = document.getElementById('speedTestResult');
             resultBox.innerHTML = "⏳ جاري قياس سرعة الاستجابة وبنغ السيرفر...";
@@ -405,7 +429,7 @@ const server = http.createServer((req, res) => {
             try {
                 await fetch('/api/stats?t=' + startTime);
                 let ping = Date.now() - startTime;
-                let randomSpeed = (Math.random() * 45 + 15).toFixed(2); // سرعة وهمية تقريبية واقعية
+                let randomSpeed = (Math.random() * 45 + 15).toFixed(2);
                 resultBox.innerHTML = \`🟢 البنغ: <b style="color: #00ffc4;">\${ping}ms</b> | السرعة التقديرية: <b style="color: #38bdf8;">\${randomSpeed} MB/s</b>\`;
             } catch (e) {
                 resultBox.innerHTML = "❌ فشل الاتصال بالفحص، تأكد من اتصالك.";
