@@ -1,4 +1,4 @@
-const http =  const http = require('http');
+const http = require('http');
 
 const PORT = process.env.PORT || 3000;
 const WS_PATH = '/vless-ws';
@@ -60,9 +60,6 @@ const users = [
     { name: "🚀 اشتراك رقم 2", uuid: "1a2b3c4d-5678-90ab-cdef-123456789abc" },
     { name: "🔥 اشتراك رقم 3", uuid: "7c9e6679-7425-40de-944b-e07fc1f90ae7" }
 ];
-
-// الصورة الأصلية مدعومة بشكل مباشر داخل الكود لمنع أخطاء 404 نهائياً
-const logoBase64 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="; 
 
 const server = http.createServer((req, res) => {
     if (req.url === '/api/stats') {
@@ -146,7 +143,7 @@ const server = http.createServer((req, res) => {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منصة بيع السيرفرات الذكية</title>
+    <title>⚡ منصة بيع السيرفرات الذكية</title>
     <style>
         :root {
             --bg-gradient: radial-gradient(circle at top, #111b27 0%, #05080f 100%);
@@ -174,37 +171,27 @@ const server = http.createServer((req, res) => {
             box-shadow: 0 20px 40px rgba(0,0,0,0.6); 
             border: 1px solid var(--border-color); 
         }
-        .header-container { 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
+        .logo-container {
             text-align: center;
-            gap: 12px; 
-            background: linear-gradient(135deg, rgba(16,28,63,0.9), rgba(11,19,41,0.9)); 
-            padding: 20px; 
-            border-radius: 22px; 
-            border: 1px solid rgba(0, 255, 255, 0.2); 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5); 
-            margin-bottom: 22px; 
+            margin-bottom: 12px;
         }
-        .logo-img { 
-            width: 90px; 
-            height: 90px; 
-            border-radius: 50%; 
+        .platform-logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px solid var(--accent-green);
             object-fit: cover;
-            border: 2px solid #00ffff; 
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.6); 
+            box-shadow: 0 0 25px rgba(0, 255, 196, 0.35);
         }
         .main-title { 
-            font-size: 19px; 
+            text-align: center; 
+            font-size: 22px; 
             font-weight: 800; 
-            margin: 0; 
+            margin-bottom: 22px; 
             background: linear-gradient(45deg, #00ffc4, #38bdf8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             letter-spacing: 0.5px;
-            text-align: center;
-            line-height: 1.4;
         }
         .top-cards { display: flex; gap: 12px; margin-bottom: 18px; }
         .top-card { 
@@ -219,7 +206,6 @@ const server = http.createServer((req, res) => {
         .top-card-value { font-size: 16px; font-weight: bold; color: var(--accent-green); }
         .progress-bar { background: rgba(255,255,255,0.08); height: 7px; border-radius: 4px; margin-top: 10px; overflow: hidden; }
         .progress-fill { background: linear-gradient(90deg, #00ffc4, #38bdf8); height: 100%; width: 2%; border-radius: 4px; transition: width 0.5s ease; }
-
         .info-box { 
             background: rgba(255, 255, 255, 0.02); 
             padding: 18px; 
@@ -230,11 +216,9 @@ const server = http.createServer((req, res) => {
         .info-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; font-size: 14px; color: #94a3b8; border-bottom: 1px solid rgba(255,255,255,0.04); padding-bottom: 10px; }
         .info-row:last-child { margin-bottom: 0; border-bottom: none; padding-bottom: 0; }
         .badge-active { background: rgba(0, 255, 196, 0.12); color: var(--accent-green); padding: 4px 14px; border-radius: 20px; font-size: 12px; font-weight: bold; border: 1px solid rgba(0, 255, 196, 0.2); }
-
         .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; font-size: 16px; font-weight: 700; color: #f8fafc; }
         .copy-all-btn { background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); color: #cbd5e1; padding: 6px 14px; border-radius: 12px; font-size: 12px; cursor: pointer; font-weight: 600; transition: 0.2s; }
         .copy-all-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
-
         .link-card { 
             background: rgba(15, 23, 42, 0.6); 
             padding: 14px; 
@@ -250,14 +234,11 @@ const server = http.createServer((req, res) => {
         .qr-btn { background: rgba(255,255,255,0.06); color: #fff; border: 1px solid var(--border-color); padding: 6px 12px; border-radius: 10px; cursor: pointer; font-size: 11px; font-weight: 600; }
         .copy-btn { background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #fff; border: none; padding: 6px 14px; border-radius: 10px; cursor: pointer; font-size: 11px; font-weight: bold; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3); }
         .link-card input[type="text"] { width: 100%; background: #020617; border: 1px solid var(--border-color); padding: 10px; border-radius: 10px; color: #64748b; font-size: 11px; direction: ltr; text-align: left; box-sizing: border-box; }
-
         .bottom-grid { display: flex; gap: 12px; margin-top: 22px; }
         .bottom-btn { flex: 1; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-color); padding: 16px; border-radius: 18px; text-align: center; color: #fff; font-size: 13px; font-weight: bold; cursor: pointer; text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: 0.2s; }
         .bottom-btn:hover { background: rgba(255, 255, 255, 0.07); transform: translateY(-2px); }
-        
         .full-btn { display: block; width: 100%; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-color); padding: 14px; border-radius: 18px; text-align: center; color: #fff; font-size: 14px; font-weight: bold; margin-top: 12px; cursor: pointer; text-decoration: none; box-sizing: border-box; transition: 0.2s; }
         .full-btn:hover { background: rgba(255, 255, 255, 0.07); }
-
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(2, 6, 23, 0.85); backdrop-filter: blur(8px); z-index: 1000; justify-content: center; align-items: center; }
         .modal-box { background: #0b1329; border: 1px solid rgba(255,255,255,0.12); width: 90%; max-width: 380px; border-radius: 26px; padding: 22px; box-shadow: 0 25px 50px rgba(0,0,0,0.9); position: relative; box-sizing: border-box; }
         .modal-close { background: none; border: none; color: #94a3b8; font-size: 20px; cursor: pointer; position: absolute; top: 18px; left: 18px; }
@@ -265,7 +246,6 @@ const server = http.createServer((req, res) => {
         .app-option-btn { display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); padding: 16px; border-radius: 18px; margin-bottom: 14px; text-decoration: none; color: #fff; font-size: 14px; font-weight: bold; transition: 0.2s; }
         .app-option-btn:hover { background: rgba(255,255,255,0.07); transform: scale(1.02); }
         .app-icon-text { display: flex; align-items: center; gap: 12px; }
-
         .sub-modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(2, 6, 23, 0.85); backdrop-filter: blur(8px); z-index: 1100; justify-content: center; align-items: center; }
         .sub-modal-box { background: #0b1329; border: 1px solid rgba(255,255,255,0.15); width: 92%; max-width: 400px; height: 84vh; border-radius: 26px; padding: 18px; box-shadow: 0 25px 50px rgba(0,0,0,0.9); display: flex; flex-direction: column; box-sizing: border-box; }
         .sub-modal-header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 12px; }
@@ -273,11 +253,9 @@ const server = http.createServer((req, res) => {
         .sub-modal-actions { display: flex; align-items: center; gap: 12px; }
         .back-btn { background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); color: #cbd5e1; padding: 5px 12px; border-radius: 10px; font-size: 12px; cursor: pointer; display: flex; align-items: center; gap: 4px; font-weight: bold; }
         .close-sub-btn { background: none; border: none; color: #94a3b8; font-size: 18px; cursor: pointer; }
-        
         .apps-list { overflow-y: auto; flex: 1; padding-right: 4px; }
         .apps-list::-webkit-scrollbar { width: 4px; }
         .apps-list::-webkit-scrollbar-thumb { background: #334155; border-radius: 2px; }
-
         .app-item { display: flex; justify-content: space-between; align-items: center; background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-color); padding: 12px 14px; border-radius: 18px; margin-bottom: 12px; text-decoration: none; transition: 0.2s; }
         .app-item:hover { background: rgba(255, 255, 255, 0.06); border-color: rgba(255,255,255,0.15); }
         .app-info { display: flex; flex-direction: column; gap: 5px; }
@@ -289,10 +267,10 @@ const server = http.createServer((req, res) => {
 </head>
 <body>
     <div class="container">
-        <div class="header-container">
-            <img src="${logoBase64}" alt="منصة بيع السيرفرات الذكية" class="logo-img">
-            <div class="main-title">منصة بيع السيرفرات الذكية</div>
+        <div class="logo-container">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" id="realLogo" class="platform-logo" alt="شعار المنصة">
         </div>
+        <div class="main-title">⚡ منصة بيع السيرفرات الذكية</div>
         
         <div class="top-cards">
             <div class="top-card">
@@ -427,7 +405,7 @@ const server = http.createServer((req, res) => {
             try {
                 await fetch('/api/stats?t=' + startTime);
                 let ping = Date.now() - startTime;
-                let randomSpeed = (Math.random() * 45 + 15).toFixed(2);
+                let randomSpeed = (Math.random() * 45 + 15).2toFixed(2);
                 resultBox.innerHTML = \`🟢 البنغ: <b style="color: #00ffc4;">\${ping}ms</b> | السرعة التقديرية: <b style="color: #38bdf8;">\${randomSpeed} MB/s</b>\`;
             } catch (e) {
                 resultBox.innerHTML = "❌ فشل الاتصال بالفحص، تأكد من اتصالك.";
